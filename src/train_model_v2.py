@@ -51,16 +51,6 @@ if __name__ == '__main__':
     # to use same CV data splitting
     shuffle = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)
     shuffle_inEval = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED + 1024)
-    scoring_metric = 'roc_auc'
-    # define inside main to easily access data
-    def score_objective(params):
-        model = define_model(**params)
-        cv_score = cross_val_score(model,
-                                   lang_train_X, lang_train_y,
-                                   cv=shuffle,
-                                   scoring=scoring_metric, n_jobs=-1)
-        return 1 - cv_score.mean()
-
 
     def cv_acc(model):
         cv_score = cross_val_score(model,
@@ -97,7 +87,11 @@ if __name__ == '__main__':
     cv_acc(model)  # show Acc in training and test
 
     # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    for thres in [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60]:
+    if model_type == 'XGB':
+        thres_lst = [0.10, 0.15, 0.20, 0.25, 0.30]   # XGB proba concentrate on small values.
+    else:
+        thres_lst = [0.30, 0.35, 0.40, 0.45, 0.50]
+    for thres in thres_lst:
         print('------------------------------------------------')
         Ds = cross_val_D(model, train_X,  train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
