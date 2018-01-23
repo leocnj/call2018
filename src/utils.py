@@ -1,4 +1,5 @@
 import logging, coloredlogs
+import numpy as np
 
 
 def get_logger(name, simple=False):
@@ -19,7 +20,56 @@ def get_logger(name, simple=False):
 
     return logger
 
+#
+#
+# !!! update after adding features.
+MEANING_DIM = 24
 
+def get_langauge_X(X):
+    return X[:, MEANING_DIM:]  # using -1 will lose the last column.
+
+def get_langauge_y(y):
+    return y[:,1]
+
+
+def get_meaning_y(y):
+    return y[:,0]
+
+
+label_back = lambda x: 'correct' if x==1 else 'incorrect'
+
+def get_D_on_proba(lang_pred, y, THRES=0.5, print=False):
+    scores = init_scores()
+    for i, lang in enumerate(lang_pred):
+        if lang[1] >= THRES:
+            decision = 'accept'
+        else:
+            decision = 'reject'
+        score_decision(decision, label_back(get_langauge_y(y)[i]), label_back(get_meaning_y(y)[i]), scores)
+    if print:
+        print_scores(scores)
+    return get_D(scores)
+
+
+def cross_val_D(model, X, y, cv, THRES=0.5):
+    """
+    For the cv split plan, compute D values among all cv-folds
+    :param model:
+    :param X:
+    :param y:
+    :param cv:
+    :param THRES: default 0.5
+    :return: numpy array D values
+    """
+    Ds = []
+    for train_index, test_index in cv.split(X, get_langauge_y(y)):
+        X_train, y_train = X[train_index], y[train_index]
+        X_test, y_test = X[test_index], y[test_index]
+        model.fit(get_langauge_X(X_train), get_langauge_y(y_train))
+        y_pred = model.predict_proba(get_langauge_X(X_test))
+        D = get_D_on_proba(y_pred, y_test, THRES=THRES)
+        Ds.append(D)
+    return np.asarray(Ds)
 
 # from CALL
 
@@ -60,7 +110,8 @@ def get_D(scores):
         IncorrectRejectionRate = 'undefined'
 
     if (FR + CA) > 0:
-        CorrectRejectionRate = FR / (FR + CA)
+        # CorrectRejectionRate = FR / (FR + CA)
+        CorrectRejectionRate = FR / (FR + CA) if FR/(FR+CA) > 0.04 else 0.04  # penalize using low cRj to boost D
     else:
         CorrectRejectionRate = 'undefined'
 
@@ -89,7 +140,8 @@ def print_scores(scores):
         IncorrectRejectionRate = 'undefined'
 
     if (FR + CA) > 0:
-        CorrectRejectionRate = FR / (FR + CA)
+        # CorrectRejectionRate = FR / (FR + CA)
+        CorrectRejectionRate = FR / (FR + CA) if FR / (FR + CA) > 0.04 else 0.04  # penalize using low cRj to boost D
     else:
         CorrectRejectionRate = 'undefined'
 
