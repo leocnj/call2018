@@ -96,12 +96,13 @@ if __name__ == '__main__':
     model.fit(lang_train_X, lang_train_y)
     cv_acc(model)  # show Acc in training and test
 
-    for thres in [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60]:
+    # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
+    for thres in [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60]:
+        print('------------------------------------------------')
         Ds = cross_val_D(model, train_X,  train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
         D_test = get_D_on_proba(model.predict_proba(lang_test_X),
-                                test_y, THRES=thres, print=False)
-        print('------------------------------------------------')
+                                test_y, THRES=thres, print=True)
         print('thres: {}\tave D: {:2.4f}\t D on test: {:2.4f}'.format(thres, Ds.mean(), D_test))
 
     
