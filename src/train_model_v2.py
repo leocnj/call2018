@@ -82,10 +82,7 @@ if __name__ == '__main__':
     cv_acc(model)  # show Acc in training and test
 
     # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    if model_type == 'XGB':
-        thres_lst = [0.10, 0.15, 0.20, 0.25, 0.30]   # XGB proba concentrate on small values.
-    else:
-        thres_lst = [0.30, 0.35, 0.40, 0.45, 0.50]
+    thres_lst = [0.30, 0.35, 0.40, 0.45, 0.50]
     for thres in thres_lst:
         print('------------------------------------------------')
         Ds = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
