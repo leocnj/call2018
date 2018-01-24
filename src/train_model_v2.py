@@ -27,15 +27,10 @@ if __name__ == '__main__':
         lang_train_y = objs[1]
         lang_test_X = objs[2]
         lang_test_y = objs[3]
+        meaning_train_y = objs[4]
+        meaning_test_y = objs[5]
 
-        meaning_train_X = objs[4]
-        meaning_train_y = objs[5]
-        meaning_test_X = objs[6]
-        meaning_test_y = objs[7]
-
-        train_X = np.concatenate((meaning_train_X, lang_train_X), axis=1)
         train_y = np.column_stack((meaning_train_y, lang_train_y))
-        test_X = np.concatenate((meaning_test_X, lang_test_X), axis=1)
         test_y = np.column_stack((meaning_test_y, lang_test_y))
 
     # skip lots of sklearn depreciation warnings
@@ -93,7 +88,7 @@ if __name__ == '__main__':
         thres_lst = [0.30, 0.35, 0.40, 0.45, 0.50]
     for thres in thres_lst:
         print('------------------------------------------------')
-        Ds = cross_val_D(model, train_X,  train_y, cv=shuffle_inEval, THRES=thres)
+        Ds = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
         D_test = get_D_on_proba(model.predict_proba(lang_test_X),
                                 test_y, THRES=thres, print=True)

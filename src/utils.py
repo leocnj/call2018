@@ -22,12 +22,6 @@ def get_logger(name, simple=False):
 
 #
 #
-# !!! update after adding features.
-MEANING_DIM = 24
-
-def get_langauge_X(X):
-    return X[:, MEANING_DIM:]  # using -1 will lose the last column.
-
 def get_langauge_y(y):
     return y[:,1]
 
@@ -65,8 +59,8 @@ def cross_val_D(model, X, y, cv, THRES=0.5):
     for train_index, test_index in cv.split(X, get_langauge_y(y)):
         X_train, y_train = X[train_index], y[train_index]
         X_test, y_test = X[test_index], y[test_index]
-        model.fit(get_langauge_X(X_train), get_langauge_y(y_train))
-        y_pred = model.predict_proba(get_langauge_X(X_test))
+        model.fit(X_train, get_langauge_y(y_train))
+        y_pred = model.predict_proba(X_test)
         D = get_D_on_proba(y_pred, y_test, THRES=THRES)
         Ds.append(D)
     return np.asarray(Ds)
