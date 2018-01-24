@@ -15,19 +15,28 @@ def get_Set(s):
 # set_Id,ofto_error_count,Spell,Article_a_an_error_count,sva_error_count,RuleRepeatedLinkWords_error_count,Verbform_error_count,noun_error_count,Article_error_count,AdjAdv_error_count,Wordform_error_count,VerbCollocation_error_count
 grm_error_file = '../data/processed/call_error_count.csv'
 
-# scst1_testData_annotated_3579,
-# scst1_trainingData_textTask_
-df = pd.read_csv(grm_error_file, sep=',', encoding="utf-8")
-df['Id'] = df.apply(lambda x: get_Id(x['set_Id']) , axis=1)
-df['Set'] = df.apply(lambda x: get_Set(x['set_Id']) , axis=1)
-print(df.head(2))
+def load_df(grm_error_file):
+    df = pd.read_csv(grm_error_file, sep=',', encoding="utf-8")
+    df['Id'] = df.apply(lambda x: get_Id(x['set_Id']) , axis=1)
+    df['Set'] = df.apply(lambda x: get_Set(x['set_Id']) , axis=1)
+    df.drop(['set_Id'], axis=1)
+    return df
 
-df.drop(['set_Id'], axis=1)
-print(df.head(2))
 
-set_dict = {'scst1_testData_annotated': 'df17_test',
-            'scst1_trainingData_textTask': 'df17_train'}
-# TODO: add entries for 2018
+grm_error_file = '../data/processed/grammar/call_error_count_dec2017.csv' # contain 2018
+df_1 = load_df(grm_error_file)
+grm_error_file = '../data/processed/grammar/call_error_count.csv'  # re-run using 2017 ASR
+df_2 = load_df(grm_error_file)
+
+df = pd.concat([df_1, df_2])
+
+
+set_dict = {'2017_test_withASR': 'df17_test',
+            'scst1_trainingData_textTask': 'df17_train',
+            'scst2_training_data_A_text': 'df18_A_train',
+            'scst2_training_data_B_text': 'df18_B_train',
+            'scst2_training_data_C_text': 'df18_C_train',
+            }
 
 # based on data, dump error count features to different csv
 for name, group in df.groupby('Set'):
