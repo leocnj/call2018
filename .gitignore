@@ -99,3 +99,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+data/asr/raw/ed2_train_cv.ctm
