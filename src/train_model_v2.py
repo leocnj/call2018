@@ -82,15 +82,20 @@ if __name__ == '__main__':
     cv_acc(model)  # show Acc in training and test
 
     # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    thres_lst = [0.30, 0.35, 0.40, 0.45, 0.50]
+    thres_lst = [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
     for thres in thres_lst:
-        print('------------------------------------------------')
-        Ds = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
+        print('---------------------------------------------------------------------------------------------')
+        Ds, ICRs, CRs = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
-        D_test = get_D_on_proba(model.predict_proba(lang_test_X),
-                                test_y, THRES=thres, print=True)
-        print('thres: {}\tave D: {:2.4f}\t D on test: {:2.4f}'.format(thres, Ds.mean(), D_test))
-
+        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X),
+                                         test_y, THRES=thres, print=False)
+        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
+                                                                                                            Ds.mean(),
+                                                                                                            ICRs.mean(),
+                                                                                                            CRs.mean(),
+                                                                                                            D_test,
+                                                                                                            ICR_test,
+                                                                                                            CR_test))
     
 
 

@@ -42,7 +42,7 @@ def get_D_on_proba(lang_pred, y, THRES=0.5, print=False):
         score_decision(decision, label_back(get_langauge_y(y)[i]), label_back(get_meaning_y(y)[i]), scores)
     if print:
         print_scores(scores)
-    return get_D(scores)
+    return get_D(scores), get_ICRrate(scores), get_CRrate(scores)
 
 
 def cross_val_D(model, X, y, cv, THRES=0.5):
@@ -56,14 +56,18 @@ def cross_val_D(model, X, y, cv, THRES=0.5):
     :return: numpy array D values
     """
     Ds = []
+    CRs = []
+    ICRs = []
     for train_index, test_index in cv.split(X, get_langauge_y(y)):
         X_train, y_train = X[train_index], y[train_index]
         X_test, y_test = X[test_index], y[test_index]
         model.fit(X_train, get_langauge_y(y_train))
         y_pred = model.predict_proba(X_test)
-        D = get_D_on_proba(y_pred, y_test, THRES=THRES)
+        D, ICR, CR = get_D_on_proba(y_pred, y_test, THRES=THRES)
         Ds.append(D)
-    return np.asarray(Ds)
+        CRs.append(CR)
+        ICRs.append(ICR)
+    return np.asarray(Ds), np.asarray(ICRs), np.asarray(CRs)
 
 # from CALL
 
@@ -115,6 +119,57 @@ def get_D(scores):
         D = 'undefined'
     return D
 
+
+def get_CRrate(scores):
+    CA = scores['CorrectAccept']
+    GFA = scores['GrossFalseAccept']
+    PFA = scores['PlainFalseAccept']
+    CR = scores['CorrectReject']
+    FR = scores['FalseReject']
+    k = 3
+
+    FA = PFA + k * GFA
+    Correct = CA + FR
+    Incorrect = CR + GFA + PFA
+
+    if (CR + FA) > 0:
+        IncorrectRejectionRate = CR / (CR + FA)
+    else:
+        IncorrectRejectionRate = 'undefined'
+
+    if (FR + CA) > 0:
+        CorrectRejectionRate = FR / (FR + CA)
+        # CorrectRejectionRate = FR / (FR + CA) if FR/(FR+CA) > 0.04 else 0.04  # penalize using low cRj to boost D
+    else:
+        CorrectRejectionRate = 'undefined'
+
+    return CorrectRejectionRate
+
+
+def get_ICRrate(scores):
+    CA = scores['CorrectAccept']
+    GFA = scores['GrossFalseAccept']
+    PFA = scores['PlainFalseAccept']
+    CR = scores['CorrectReject']
+    FR = scores['FalseReject']
+    k = 3
+
+    FA = PFA + k * GFA
+    Correct = CA + FR
+    Incorrect = CR + GFA + PFA
+
+    if (CR + FA) > 0:
+        IncorrectRejectionRate = CR / (CR + FA)
+    else:
+        IncorrectRejectionRate = 'undefined'
+
+    if (FR + CA) > 0:
+        CorrectRejectionRate = FR / (FR + CA)
+        # CorrectRejectionRate = FR / (FR + CA) if FR/(FR+CA) > 0.04 else 0.04  # penalize using low cRj to boost D
+    else:
+        CorrectRejectionRate = 'undefined'
+
+    return IncorrectRejectionRate
 
 def print_scores(scores):
     CA = scores['CorrectAccept']
