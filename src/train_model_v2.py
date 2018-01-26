@@ -20,8 +20,16 @@ SEED = 1
 
 if __name__ == '__main__':
 
-    # year17 data
-    with open('../data/processed/numpy/year17_withHuy.pkl', 'rb') as pf:
+    # Parse args
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--model_type', type=str, help='model type',
+                        required=True)
+    parser.add_argument('-d', '--data', type=str, help='pickled data', required=True)
+    args = parser.parse_args()
+    model_type = args.model_type
+    pkl_file = args.data
+
+    with open('../data/processed/numpy/' + pkl_file, 'rb') as pf:
         objs = pickle.load(pf)
         lang_train_X = objs[0]
         lang_train_y = objs[1]
@@ -39,10 +47,6 @@ if __name__ == '__main__':
 
     # logger = get_logger(__name__, simple=True)
 
-    """
-    """
-
-
     # to use same CV data splitting
     shuffle = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)
     shuffle_inEval = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED + 1024)
@@ -56,12 +60,7 @@ if __name__ == '__main__':
         print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
 
-    # Parse args
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--model_type', type=str, help='model type',
-                        required=True)
-    args = parser.parse_args()
-    model_type = args.model_type
+
     print('model type: {}'.format(model_type))
 
 
@@ -82,7 +81,7 @@ if __name__ == '__main__':
     cv_acc(model)  # show Acc in training and test
 
     # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    thres_lst = [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
+    thres_lst = [0.20, 0.25, 0.30, 0.325, 0.350, 0.375, 0.40, 0.425, 0.45, 0.50]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)

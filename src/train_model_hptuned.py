@@ -177,8 +177,8 @@ if __name__ == '__main__':
                  'k': 1 + hp.randint('k', 15)}
     elif model_type == 'LR':
         space = {'model': 'LR',
-                 'C': hp.choice('C', [0.1, 0.5, 1.0, 10, 25, 50]),
-                 'iter': hp.choice('iter', [100, 200, 300, 400])}
+                 'C': hp.choice('C', [1.0, 10, 25, 50, 100, 500]),
+                 'iter': hp.choice('iter', [100, 500, 1000])}
     else:
         print('wrong model type {}'.format(model_type))
 
@@ -190,7 +190,7 @@ if __name__ == '__main__':
     cv_acc(model)  # show Acc in training and test
 
     # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    thres_lst = [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
+    thres_lst = [0.20, 0.25, 0.30, 0.325, 0.350, 0.375, 0.40, 0.425, 0.45, 0.50]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
