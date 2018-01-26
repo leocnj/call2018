@@ -52,10 +52,13 @@ if __name__ == '__main__':
     shuffle_inEval = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED + 1024)
 
     def cv_acc(model):
+        # for train CV
         cv_score = cross_val_score(model,
                                    lang_train_X, lang_train_y,
                                    cv=shuffle_inEval,
                                    scoring='accuracy', n_jobs=-1)
+        # for test
+        model.fit(lang_train_X, lang_train_y)
         acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
         print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
