@@ -11,6 +11,7 @@ import pickle
 import argparse
 
 import numpy as np
+import pandas as pd
 from hyperopt import fmin, tpe, Trials
 from hyperopt import hp
 from hyperopt import space_eval
@@ -45,7 +46,8 @@ def define_model(**params):
         model = SVC(C=C, kernel=kernel, probability=True, random_state=SEED)
     elif params['model'] == 'LR':
         C = params['C']
-        model = LogisticRegression(C=C, random_state=SEED)
+        iter = params['iter']
+        model = LogisticRegression(C=C, max_iter=iter, random_state=SEED)
     elif params['model'] == 'kNN':
         k = params['k']
         model = KNeighborsClassifier(n_neighbors=k)
@@ -61,6 +63,7 @@ def show_trials(trials, space):
     :param space:
     :return:
     """
+    rows = []
     for trial in trials.trials:
         params = trial['misc']['vals']
         dict_ = {}
@@ -68,7 +71,10 @@ def show_trials(trials, space):
             dict_[k] = v[0]  # convert list to int to use space_eval
         params = space_eval(space, dict_)
         score = 1 - trial['result']['loss']
-        print('{} => {}'.format(params, score))
+        params['score'] = score
+        rows.append(params)
+    df = pd.DataFrame.from_dict(rows)
+    print(df.sort_values(by='score', ascending=False))
 
 
 @timeit
@@ -85,8 +91,18 @@ def find_optm_params(objective, space, max_evals=20):
 
 
 if __name__ == '__main__':
+    # Parse args
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--model_type', type=str, help='model type',
+                        required=True)
+    parser.add_argument('-d', '--data', type=str, help='pickled data', required=True)
 
-    with open('../data/processed/numpy/year17_withHuy.pkl', 'rb') as pf:
+    args = parser.parse_args()
+    model_type = args.model_type
+    pkl_file = args.data
+    print('model type: {}'.format(model_type))
+
+    with open('../data/processed/numpy/' + pkl_file, 'rb') as pf:
         objs = pickle.load(pf)
         lang_train_X = objs[0]
         lang_train_y = objs[1]
@@ -142,13 +158,6 @@ if __name__ == '__main__':
         print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
 
-    # Parse args
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--model_type', type=str, help='model type',
-                        required=True)
-    args = parser.parse_args()
-    model_type = args.model_type
-    print('model type: {}'.format(model_type))
 
     if model_type == 'RF':
         # model = RandomForestClassifier(random_state=SEED)
@@ -168,7 +177,8 @@ if __name__ == '__main__':
                  'k': 1 + hp.randint('k', 15)}
     elif model_type == 'LR':
         space = {'model': 'LR',
-                 'C': hp.choice('C', [0.1, 0.5, 1.0, 10, 25, 50])}
+                 'C': hp.choice('C', [0.1, 0.5, 1.0, 10, 25, 50]),
+                 'iter': hp.choice('iter', [100, 200, 300, 400])}
     else:
         print('wrong model type {}'.format(model_type))
 
