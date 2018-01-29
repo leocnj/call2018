@@ -32,7 +32,7 @@ def get_meaning_y(y):
 
 label_back = lambda x: 'correct' if x==1 else 'incorrect'
 
-def get_D_on_proba(lang_pred, y, THRES=0.5, print=False):
+def get_D_on_proba(lang_pred, y, THRES=0.5, print=False, CR_adjust=False):
     scores = init_scores()
     for i, lang in enumerate(lang_pred):
         if lang[1] >= THRES:
@@ -42,7 +42,7 @@ def get_D_on_proba(lang_pred, y, THRES=0.5, print=False):
         score_decision(decision, label_back(get_langauge_y(y)[i]), label_back(get_meaning_y(y)[i]), scores)
     if print:
         print_scores(scores)
-    return get_D(scores), get_ICRrate(scores), get_CRrate(scores)
+    return get_D(scores, CR_adjust), get_ICRrate(scores), get_CRrate(scores)
 
 
 def cross_val_D(model, X, y, cv, THRES=0.5):
@@ -63,7 +63,7 @@ def cross_val_D(model, X, y, cv, THRES=0.5):
         X_test, y_test = X[test_index], y[test_index]
         model.fit(X_train, get_langauge_y(y_train))
         y_pred = model.predict_proba(X_test)
-        D, ICR, CR = get_D_on_proba(y_pred, y_test, THRES=THRES)
+        D, ICR, CR = get_D_on_proba(y_pred, y_test, THRES=THRES, CR_adjust=True)
         Ds.append(D)
         CRs.append(CR)
         ICRs.append(ICR)
@@ -90,7 +90,7 @@ def score_decision(decision, language_correct_gs, meaning_correct_gs, scores):
     return result
 
 
-def get_D(scores):
+def get_D(scores, CR_adjust):
     CA = scores['CorrectAccept']
     GFA = scores['GrossFalseAccept']
     PFA = scores['PlainFalseAccept']
@@ -109,7 +109,10 @@ def get_D(scores):
 
     if (FR + CA) > 0:
         # CorrectRejectionRate = FR / (FR + CA)
-        CorrectRejectionRate = FR / (FR + CA) if FR/(FR+CA) > 0.04 else 0.04  # penalize using low cRj to boost D
+        if CR_adjust:
+            CorrectRejectionRate = FR / (FR + CA) if FR/(FR+CA) > 0.04 else 0.04  # penalize using low cRj to boost D
+        else:
+            CorrectRejectionRate = FR / (FR + CA)
     else:
         CorrectRejectionRate = 'undefined'
 

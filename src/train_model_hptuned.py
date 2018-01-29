@@ -195,8 +195,7 @@ if __name__ == '__main__':
         print('---------------------------------------------------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
-        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X),
-                                                   test_y, THRES=thres, print=False)
+        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False)
         print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
                                                                                                             Ds.mean(),
                                                                                                             ICRs.mean(),
