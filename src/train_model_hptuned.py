@@ -123,7 +123,8 @@ if __name__ == '__main__':
     logger = get_logger(__name__, simple=True)
 
     # to use same CV data splitting
-    shuffle = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)
+    shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
+    shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
     scoring_metric = 'roc_auc'
 
 
@@ -145,8 +146,6 @@ if __name__ == '__main__':
         return 1 - cv_score.mean()
 
 
-    shuffle = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)
-    shuffle_inEval = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED + 1024)
 
 
     def cv_acc(model):
@@ -189,7 +188,6 @@ if __name__ == '__main__':
     model.fit(lang_train_X, lang_train_y)
     cv_acc(model)  # show Acc in training and test
 
-    # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
     thres_lst = [0.20, 0.25, 0.30, 0.325, 0.350, 0.375, 0.40, 0.425, 0.45, 0.50]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')

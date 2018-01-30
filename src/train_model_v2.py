@@ -48,8 +48,8 @@ if __name__ == '__main__':
     # logger = get_logger(__name__, simple=True)
 
     # to use same CV data splitting
-    shuffle = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)
-    shuffle_inEval = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED + 1024)
+    shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
+    shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
 
     def cv_acc(model):
         # for train CV
