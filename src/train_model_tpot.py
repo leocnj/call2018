@@ -1,4 +1,5 @@
 import pickle
+import multiprocessing
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -8,6 +9,7 @@ from xgboost.sklearn import XGBClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import cross_val_score
+from tpot import TPOTClassifier
 
 from utils import *
 import argparse
@@ -19,6 +21,8 @@ SEED = 1
 
 
 if __name__ == '__main__':
+
+    # multiprocessing.set_start_method('forkserver')
 
     # Parse args
     parser = argparse.ArgumentParser()
@@ -58,39 +62,28 @@ if __name__ == '__main__':
                                    cv=shuffle_inEval,
                                    scoring='accuracy', n_jobs=-1)
         # for test
-        model.fit(lang_train_X, lang_train_y)
+        # model.fit(lang_train_X, lang_train_y)
         acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
         print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
 
 
     print('model type: {}'.format(model_type))
-
-
-    if model_type == 'RF':
-        model = RandomForestClassifier(random_state=SEED)
-    elif model_type == 'SVC':
-        model = SVC(probability=True, random_state=SEED)
-    elif model_type == 'XGB':
-        model = XGBClassifier()
-    elif model_type == 'kNN':
-        model = KNeighborsClassifier()
-    elif model_type == 'LR':
-        model = LogisticRegression(random_state=SEED)
-    else:
-        print('wrong model type {}'.format(model_type))
+    model = TPOTClassifier(generations=5, population_size=20, cv=shuffle,
+                           random_state=SEED, verbosity=2, n_jobs=-1)
 
     model.fit(lang_train_X, lang_train_y)
-    cv_acc(model)  # show Acc in training and test
+    model = model.fitted_pipeline_ # only keep sklearn pipeline.
+    print('Acc on test: {}'.format(model.score(lang_test_X, lang_test_y)))
 
-    # thres < 0.3 may cause iRj less than 25% and therefore fail in meeting challenge's requirement
-    # thres_lst = [0.20, 0.25, 0.30, 0.325, 0.350, 0.375, 0.40, 0.425, 0.45, 0.50]
-    thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
+    # cv_acc(model)  # show Acc in training and test
+
+    thres_lst = [0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
         # D on the REAL test set.
-        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False, CR_adjust=False)
+        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False, CR_adjust=True)
         print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
                                                                                                             Ds.mean(),
                                                                                                             ICRs.mean(),
