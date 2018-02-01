@@ -58,8 +58,9 @@ from tqdm import tqdm
 
 def extract_vec_features(df_in):
     feats = []
-    for idx in tqdm(range(len(df_in.index))):
-        row = df_in.iloc[idx,:]
+    # for idx in tqdm(range(len(df_in.index))):   # move tqdm outside in MP condition
+    #     row = df_in.iloc[idx,:]
+    for _, row in tqdm(df_in.iterrows()):
         id = row['Id']
         # !!! always use RecResult
         sent = row['RecResult'].rstrip()
@@ -81,10 +82,22 @@ def output(feats, out_csv):
 def parallel(data, func):
     data_split = np.array_split(data, cores)
     pool = Pool(cores)
-    data = pd.concat(pool.map(func, data_split))
+    data = pd.concat(pool.imap_unordered(func, data_split))
     pool.close()
     pool.join()
     return data
+
+import parmap
+
+def parallel2(data, func):
+    data_split = np.array_split(data, cores)
+    # pool = Pool(cores)
+    # data = pd.concat(pool.imap_unordered(func, data_split))
+    data = pd.concat(parmap.map(func, data_split, pm_pbar=True))
+    # pool.close()
+    # pool.join()
+    return data
+
 
 
 def test():
@@ -108,7 +121,7 @@ if __name__ == '__main__':
     # extract_vec_features(df_17_train, '../data/processed/df17_train_fasttext.csv')
     # 1/17/2018 re-run after getting 2017 test set's ASR outputs.
     # feats = extract_vec_features(df_17_test)
-    feats = parallel(df_17_test, extract_vec_features)  # multi-processor
+    feats = parallel2(df_17_test, extract_vec_features)  # multi-processor
     output(feats, '../data/processed/df17_test_fasttext.csv')
     # extract_vec_features(df_18_A_train, '../data/processed/df18_A_train_fasttext.csv')
     # extract_vec_features(df_18_B_train, '../data/processed/df18_B_train_fasttext.csv')
