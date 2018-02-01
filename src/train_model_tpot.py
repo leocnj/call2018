@@ -26,12 +26,14 @@ if __name__ == '__main__':
 
     # Parse args
     parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--model_type', type=str, help='model type',
+    parser.add_argument('-m', '--model_file', type=str, help='model file',
                         required=True)
     parser.add_argument('-d', '--data', type=str, help='pickled data', required=True)
+    parser.add_argument('--train', help='train model using TPOT', action='store_true')
     args = parser.parse_args()
-    model_type = args.model_type
+    model_file = args.model_file
     pkl_file = args.data
+    RUN_TPOT = args.train
 
     with open('../data/processed/numpy/' + pkl_file, 'rb') as pf:
         objs = pickle.load(pf)
@@ -55,30 +57,21 @@ if __name__ == '__main__':
     shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
     shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
 
-    def cv_acc(model):
-        # for train CV
-        cv_score = cross_val_score(model,
-                                   lang_train_X, lang_train_y,
-                                   cv=shuffle_inEval,
-                                   scoring='accuracy', n_jobs=-1)
-        # for test
-        # model.fit(lang_train_X, lang_train_y)
-        acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
-        print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
+    if RUN_TPOT:
+        model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
+                               random_state=SEED, verbosity=2, n_jobs=-1)
 
-
-
-    print('model type: {}'.format(model_type))
-    model = TPOTClassifier(generations=5, population_size=20, cv=shuffle,
-                           random_state=SEED, verbosity=2, n_jobs=-1)
-
-    model.fit(lang_train_X, lang_train_y)
-    model = model.fitted_pipeline_ # only keep sklearn pipeline.
-    print('Acc on test: {}'.format(model.score(lang_test_X, lang_test_y)))
-
-    # cv_acc(model)  # show Acc in training and test
+        model.fit(lang_train_X, lang_train_y)
+        model = model.fitted_pipeline_  # only keep sklearn pipeline.
+        print('Acc on test: {}'.format(model.score(lang_test_X, lang_test_y)))
+        with open('../result/' + model_file, 'wb') as pf:
+            pickle.dump(model, pf)
+    else:
+        with open('../result/' + model_file, 'rb') as pf:
+            model = pickle.load(pf)
 
     thres_lst = [0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
+#    thres_lst = [0.55, 0.60, 0.65, 0.70, 0.75, 0.80]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X,  train_y, cv=shuffle_inEval, THRES=thres)
@@ -91,10 +84,4 @@ if __name__ == '__main__':
                                                                                                             D_test,
                                                                                                             ICR_test,
                                                                                                             CR_test))
-    
 
-
-    # with open('../data/processed/numpy/year17_models.pkl', 'wb') as pf:
-    #     pickle.dump([optm_params_RF_l, optm_params_RF_m,
-    #                  optm_params_XGB_l, optm_params_XGB_m,
-    #                  optm_params_SVM_l, optm_params_SVM_m], pf)
