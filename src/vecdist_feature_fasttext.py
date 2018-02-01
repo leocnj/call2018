@@ -3,11 +3,14 @@ import pickle
 import numpy as np
 from scipy import spatial
 import csv
+import pandas as pd
+from multiprocessing import cpu_count, Pool
+
 # from gensim.models import Word2Vec, FastText         # Gensim
 from gensim.models.wrappers.fasttext import FastText   # C++
 
 from utils import get_logger
-logger = get_logger(__name__, simple=True)
+# logger = get_logger(__name__, simple=True)
 
 # load grammar
 with open('../data/processed/data.pkl', 'rb') as pf:
@@ -53,7 +56,7 @@ def wmd_feature(sent, sents_gr):
 
 from tqdm import tqdm
 
-def extract_vec_features(df_in, out_csv):
+def extract_vec_features(df_in):
     feats = []
     for idx in tqdm(range(len(df_in.index))):
         row = df_in.iloc[idx,:]
@@ -64,13 +67,24 @@ def extract_vec_features(df_in, out_csv):
         if sents_in_grammar is not None:
             cos_mean, cos_max = cossim_feature(sent, sents_in_grammar)
             wmd_mean, wmd_min = wmd_feature(sent, sents_in_grammar)
-            logger.info('{}: {} {} {} {}'.format(sent, cos_mean, cos_max, wmd_mean, wmd_min))
+            # logger.info('{}: {} {} {} {}'.format(sent, cos_mean, cos_max, wmd_mean, wmd_min))
             feats.append([id, cos_mean, cos_max, wmd_mean, wmd_min])
-    #
+    return pd.DataFrame.from_records(feats,
+                                     columns=['Id', 'cos_mean', 'cos_max', 'wmd_mean', 'wmd_min'])
+
+
+def output(feats, out_csv):
     with open(out_csv, 'w', newline='') as op:
-        writer = csv.writer(op)
-        writer.writerow(['idx', 'cos_mean', 'cos_max', 'wmd_mean', 'wmd_min'])
-        writer.writerows(feats)
+        feats.to_csv(op, index=False)
+
+
+def parallel(data, func):
+    data_split = np.array_split(data, cores)
+    pool = Pool(cores)
+    data = pd.concat(pool.map(func, data_split))
+    pool.close()
+    pool.join()
+    return data
 
 
 def test():
@@ -87,10 +101,15 @@ def test():
         print('{} vs {}: {} {}'.format(x, y, cossim, wmd))
 
 if __name__ == '__main__':
+
+    cores = cpu_count()
+
     # test()
     # extract_vec_features(df_17_train, '../data/processed/df17_train_fasttext.csv')
     # 1/17/2018 re-run after getting 2017 test set's ASR outputs.
-    extract_vec_features(df_17_test, '../data/processed/df17_test_fasttext.csv')
+    # feats = extract_vec_features(df_17_test)
+    feats = parallel(df_17_test, extract_vec_features)  # multi-processor
+    output(feats, '../data/processed/df17_test_fasttext.csv')
     # extract_vec_features(df_18_A_train, '../data/processed/df18_A_train_fasttext.csv')
     # extract_vec_features(df_18_B_train, '../data/processed/df18_B_train_fasttext.csv')
     # extract_vec_features(df_18_C_train, '../data/processed/df18_C_train_fasttext.csv')
