@@ -13,6 +13,7 @@ if __name__ == '__main__':
     parser.add_argument('--getId', dest='getId', action='store_true')
     parser.add_argument('--no-getId', dest='getId', action='store_false')
     parser.set_defaults(getId=True)
+    parser.add_argument('--conf', help='include confidence scores', action='store_true')
     args = parser.parse_args()
 
     df = pd.read_csv(args.ctm, sep=' ', header=None)
@@ -21,10 +22,14 @@ if __name__ == '__main__':
         df.columns = ['Id', 'chan', 'start', 'end', 'word', 'conf', 'foo']
         # group by Id
         if args.header:
-            print('Id,RecResult')
+            print('Id,RecResult,Confidence')
         for name, group in df.groupby('Id'):
             sent = ' '.join([w.lower() for w in group['word']])
-            print('{},{}'.format(name, sent))
+            cfs = ' '.join([repr(cf) for cf in group['conf']])
+            if args.conf:
+                print('{},{},{}'.format(name, sent, cfs))
+            else:
+                print('{},{}'.format(name, sent))
 
 
     def ctm_train(df):
@@ -47,10 +52,14 @@ if __name__ == '__main__':
         df = pd.merge(df_18_train, df, on='Wavfile')
         # group by Id
         if args.header:
-            print('Id,RecResult')
+            print('Id,RecResult,Confidence')
         for name, group in df.groupby('Id'):
             sent = ' '.join([w.lower() for w in group['word']])
-            print('{},{}'.format(name, sent))
+            cfs = ' '.join([repr(cf) for cf in group['conf']])
+            if args.conf:
+                print('{},{},{}'.format(name, sent, cfs))
+            else:
+                print('{},{}'.format(name, sent))
 
 
     if args.getId:

@@ -1,0 +1,996 @@
+Id,RecResult,Confidence
+3570,can i have a hotel room for four nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.75 0.92
+3571,i want a room for one week,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3572,a twin room please,1.0 1.0 1.0 1.0
+3573,can i pay by credit card,1.0 1.0 1.0 1.0 1.0 1.0
+3574,i have a fitness studio,0.65 1.0 1.0 1.0 1.0
+3575,i would like to buy three musical tickets,1.0 1.0 1.0 0.78 0.78 1.0 1.0 0.92
+3576,i would like to go on monday night,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3577,i would like to go on monday night,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.89
+3579,i have three tickets for mamma mia,1.0 0.94 1.0 1.0 1.0 0.85 0.85
+3580,i would like to sit in the front,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.57
+3581,i would like to sit in the front,0.96 0.94 0.94 0.94 0.94 0.94 0.93 0.93
+3582,i would like to pay with visa,1.0 0.44 0.47 0.99 0.95 0.96 0.96
+3583,i would like tickets for mastercard please,1.0 1.0 1.0 1.0 1.0 0.78 0.84
+3584,i would like i would like master niger i hotel bar,1.0 1.0 1.0 1.0 1.0 0.99 0.85 0.17 0.77 0.23 0.22
+3587,i would like a ticket to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3588,i would like to pay with visa,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3589,i would like to pay with visa,1.0 1.0 1.0 1.0 1.0 0.72 1.0
+3590,i need a ticket to green park,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3592,i would like to pay with visa,1.0 1.0 1.0 1.0 0.99 0.87 1.0
+3593,can i pay by pounds,1.0 1.0 1.0 1.0 0.39
+3594,can i pay by post card,1.0 1.0 1.0 1.0 0.57 0.81
+3595,can i pay by post card,0.91 0.91 1.0 1.0 0.66 0.84
+3596,i would like a ticket to notting hill,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3597,can i pay by mastercard,1.0 1.0 1.0 0.65 0.97
+3598,can i pay by mastercard,1.0 1.0 1.0 0.88 0.97
+3599,can i buy my passport,1.0 0.98 0.94 0.4 0.38
+3602,i would like a coke,1.0 1.0 1.0 1.0 0.94
+3604,i want to steak,1.0 1.0 0.47 0.5
+3605,i want my steak rare,0.54 0.35 1.0 1.0 1.0
+3606,i would like my steak rare,1.0 1.0 1.0 1.0 1.0 1.0
+3608,i would like peas,1.0 1.0 1.0 0.25
+3610,could i see the dessert menu,0.66 1.0 0.88 0.99 0.86 0.99
+3611,i am a small,0.96 0.83 0.64 1.0
+3618,a ticket to london,0.56 0.57 1.0 1.0
+3619,two tickets to london,0.93 1.0 1.0 1.0
+3620,i want to leave at nine o'clock tomorrow,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3621,i am fine,0.87 0.87 0.93
+3622,i am from turkey,0.98 0.98 1.0 1.0
+3623,two musical tickets please,0.78 0.71 0.9 0.99
+3625,tickets for monday m,0.88 1.0 1.0 0.83
+3626,a ticket for monday afternoon,0.5 0.52 1.0 1.0 0.44
+3627,two tickets for younger sister,0.94 1.0 0.93 0.55 0.13
+3628,two tickets for wicked,0.99 0.99 0.94 0.49
+3629,two tickets for the king lion,0.53 1.0 1.0 0.66 0.92 0.91
+3630,i would like a ticket,1.0 1.0 1.0 0.83 0.82
+3631,i want sit in the,0.97 0.76 0.95 0.97 0.97
+3632,i would like to sit in the second row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.98 1.0
+3634,i tickets please,0.58 0.53 1.0
+3636,a single room,1.0 1.0 1.0
+3637,a single room,1.0 1.0 1.0
+3638,a single room please,1.0 1.0 1.0 1.0
+3639,i want to pay with my post card,1.0 1.0 1.0 1.0 1.0 0.96 0.6 0.6
+3640,i would like to pay with post card,1.0 1.0 1.0 1.0 1.0 1.0 0.95 0.95
+3641,i would like to pay with dollars,1.0 1.0 1.0 1.0 1.0 0.86 0.35
+3642,is there the hotel bar,1.0 1.0 0.82 1.0 1.0
+3643,my name is nick,1.0 1.0 1.0 1.0
+3644,i am from austria,0.98 0.98 1.0 0.98
+3645,the capital of austria is jeans,0.91 1.0 1.0 1.0 1.0 0.64
+3647,i have four brothers,1.0 1.0 0.65 0.98
+3648,i have four brothers,1.0 1.0 0.44 0.76
+3649,i have one brother,1.0 1.0 1.0 0.99
+3650,i going in the holidays,1.0 0.94 0.7 0.68 0.71
+3651,this is my passport,1.0 1.0 1.0 1.0
+3652,this is my pass,1.0 1.0 1.0 0.94
+3654,a ticket from piccadilly circus,0.9 0.9 0.91 1.0 1.0
+3655,i like a ticket to piccadilly circus,0.71 1.0 1.0 1.0 1.0 1.0 1.0
+3656,i would like a ticket to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3657,i would like to pay with mastercard,1.0 1.0 1.0 1.0 1.0 1.0 0.92
+3658,four musical tickets please,0.96 1.0 0.97 1.0
+3659,four musical tickets,0.98 1.0 0.98
+3660,i would like to buy four musical tickets,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.99
+3661,i want to go at friday m,1.0 1.0 0.92 1.0 0.77 0.81 0.3
+3662,i would like to go at friday,1.0 1.0 1.0 1.0 1.0 0.95 1.0
+3663,i would like to go on friday night,1.0 1.0 1.0 1.0 1.0 1.0 0.97 0.97
+3664,i would like four tickets for wicked,1.0 1.0 1.0 1.0 1.0 1.0 0.97
+3665,i want four tickets for wicked,1.0 1.0 1.0 1.0 1.0 1.0
+3666,is a hairdryer,0.79 0.83 0.78
+3667,i want to sit in the eighth row,1.0 1.0 1.0 1.0 1.0 1.0 0.99 1.0
+3668,i want to sit in the eighth row,1.0 1.0 0.86 1.0 1.0 1.0 0.98 0.94
+3669,i want tickets for the natural history museum please,1.0 1.0 0.99 1.0 1.0 0.84 1.0 1.0 0.67
+3670,i want two tickets please,1.0 1.0 0.94 0.94 1.0
+3671,no i do not have a reservation,1.0 1.0 1.0 0.9 1.0 1.0 1.0
+3673,no i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3674,can i have six room for six nights,1.0 1.0 1.0 1.0 0.79 1.0 1.0 1.0
+3675,i want a room for six nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3676,i want a double room,1.0 1.0 1.0 1.0 1.0
+3679,have you're a pool,1.0 0.3 1.0 1.0
+3680,where is the pool,1.0 1.0 0.99 0.99
+3681,i want a room for four nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3682,i want a double room,1.0 1.0 1.0 1.0 1.0
+3683,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+3684,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+3685,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+3686,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+3688,can i pay with swiss francs,1.0 1.0 1.0 1.0 0.99 0.99
+3689,no i do not have a reservation,0.94 1.0 1.0 1.0 1.0 1.0 1.0
+3690,i want a room for seven nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3691,i want a junior suite,0.9 0.88 1.0 1.0 1.0
+3692,can i pay by mastercard,1.0 1.0 1.0 1.0 0.97
+3693,is there a hairdresser,1.0 1.0 1.0 1.0
+3694,where is the hairdresser,1.0 1.0 1.0 1.0
+3695,i would like three tickets to london,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3696,i want to leave on wednesday evening,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3697,my name is sarah,1.0 1.0 1.0 0.99
+3698,my name is sarah,1.0 1.0 1.0 0.99
+3700,i want a ticket to london,1.0 1.0 1.0 1.0 1.0 1.0
+3701,i would like to leave on sunday,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3702,my name is john,1.0 1.0 1.0 1.0
+3703,i'm from spain,0.96 1.0 1.0
+3704,my name is brian,1.0 1.0 1.0 1.0
+3705,i'm from america,0.94 1.0 1.0
+3706,my name is silvia,1.0 1.0 1.0 0.92
+3707,i'm from portugal,0.99 1.0 1.0
+3708,the capital of portugal is lisbon,1.0 1.0 1.0 1.0 1.0 1.0
+3709,i have two younger brothers,1.0 0.99 1.0 0.98 0.98
+3710,i going to holidays,0.99 0.59 0.63 0.64
+3712,that is my passport,0.39 0.89 1.0 1.0
+3713,that is my passport,0.74 0.97 1.0 1.0
+3714,this is my passport,1.0 1.0 1.0 1.0
+3716,i want pay,1.0 1.0 0.85
+3717,i would like to pay by post card,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3718,i would like to pay by post card,1.0 1.0 1.0 0.98 1.0 1.0 1.0 1.0
+3719,i want two musical tickets,1.0 1.0 0.99 1.0 1.0
+3720,i want two tickets for monday evening,1.0 1.0 0.95 1.0 1.0 1.0 1.0
+3723,a room for two nights,1.0 1.0 1.0 1.0 1.0
+3724,can i have a room for two nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3725,a single room,0.83 1.0 1.0
+3726,single room,1.0 1.0
+3727,single room,1.0 1.0
+3728,thirty,0.37
+3729,i don't note,0.95 0.99 0.63
+3730,is there a lift,0.87 0.66 0.99 0.86
+3731,where is the lift,1.0 1.0 1.0 1.0
+3735,can i pay with dollars,1.0 1.0 1.0 1.0 1.0
+3736,i want a room for three nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3737,i want a single room,1.0 1.0 1.0 1.0 1.0
+3738,i want to pay with credit card,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3740,have you got a fitness studio,1.0 1.0 1.0 1.0 1.0 1.0
+3741,is there a gym,1.0 1.0 1.0 1.0
+3742,where is the gym,1.0 1.0 1.0 1.0
+3743,i want a ticket to london,1.0 1.0 1.0 1.0 1.0 1.0
+3744,i want to leave tomorrow at museum,1.0 1.0 1.0 1.0 1.0 1.0 0.75
+3745,my name is mona,1.0 1.0 1.0 1.0
+3746,i'm from germany,0.9 1.0 1.0
+3749,a single room please,0.93 0.69 1.0 1.0
+3750,i would like a tea,1.0 1.0 1.0 1.0 0.98
+3751,please,0.75
+3757,where is the pool,1.0 1.0 1.0 0.73
+3759,which bus goes there,1.0 1.0 1.0 1.0
+3761,a room for six nights,0.99 0.99 1.0 0.99 1.0
+3762,i am going for six nights,0.9 0.87 0.7 1.0 1.0 1.0
+3763,i want a room for six nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3764,a twin zimmer,1.0 1.0 1.0
+3767,i would like to pay by credit card,1.0 1.0 1.0 0.98 1.0 1.0 1.0 1.0
+3768,is there a lift,1.0 1.0 1.0 1.0
+3769,i have not a reservation,1.0 0.99 0.98 0.99 1.0
+3770,i have no reservation,1.0 1.0 1.0 1.0
+3771,i haven't room reservation,1.0 0.71 1.0 1.0
+3773,i haven't got a reservation,1.0 1.0 0.99 1.0 1.0
+3774,i have not a reservation,1.0 1.0 1.0 1.0 1.0
+3776,i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0
+3777,i don't have a reservation,0.65 0.6 1.0 0.96 1.0
+3778,no i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3779,no i do not have a,0.93 0.99 0.89 0.99 1.0 0.98
+3781,no i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3782,a room for seven nights,1.0 1.0 1.0 1.0 1.0
+3783,a double room,1.0 1.0 1.0
+3784,a double room,1.0 1.0 1.0
+3786,i would like to pay by post card,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3787,is there a restaurant,1.0 1.0 1.0 1.0
+3788,where is the restaurant,1.0 1.0 0.89 0.49
+3789,where is the hairdryer,1.0 1.0 1.0 0.67
+3790,is there a hotel restaurant,0.97 0.97 0.97 1.0 0.65
+3791,a room for two nights,1.0 1.0 1.0 0.99 1.0
+3792,a double room,1.0 1.0 1.0
+3794,a twin room,1.0 1.0 1.0
+3795,i would like to pay by post card,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3796,i would like to pay by swiss ah for,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.89 0.73
+3797,i would like to pay by swiss francs,1.0 1.0 1.0 0.95 1.0 1.0 1.0 0.74
+3798,can i pay with swiss francs,1.0 1.0 1.0 1.0 1.0 0.99
+3799,is there a hairdresser,1.0 1.0 1.0 1.0
+3800,i want a ticket to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3801,i'd like to pay with post card,0.56 0.96 0.85 0.91 0.98 0.93 0.93
+3802,i would like to pay with pounds,0.83 0.83 1.0 0.84 0.85 0.94 0.93
+3803,i'm fine,0.99 0.99
+3804,i would like leave,0.77 0.7 1.0 0.2
+3805,i would like some boots,1.0 1.0 1.0 1.0 1.0
+3806,i would like blue boots,1.0 1.0 1.0 1.0 1.0
+3807,no i don't have a reservation,1.0 1.0 1.0 1.0 1.0 1.0
+3808,a room for three nights,1.0 1.0 1.0 1.0 1.0
+3809,a junior suite,1.0 1.0 1.0
+3810,i want to pay with credit card,1.0 1.0 0.9 1.0 1.0 1.0 1.0
+3811,my name is barbara,1.0 1.0 1.0 1.0
+3812,i'm from france,0.81 1.0 1.0
+3813,the capital of france is paris,1.0 1.0 1.0 1.0 1.0 1.0
+3814,i have two younger sisters,1.0 1.0 1.0 1.0 1.0
+3815,i go in the holidays,1.0 0.97 0.89 0.91 0.5
+3816,this is my passport,1.0 1.0 1.0 1.0
+3817,this is my passport,1.0 1.0 1.0 1.0
+3818,yes it is my passport,1.0 1.0 1.0 1.0 1.0
+3819,musical tickets,1.0 0.96
+3820,can i have three musical tickets,1.0 1.0 1.0 1.0 1.0 0.97
+3822,i need three tickets for starlight express,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3823,i would like in the fourth this suite,1.0 1.0 1.0 0.7 0.71 0.65 0.54 0.33
+3824,i would like to sit in the fourth row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3825,i want tickets for the london eye,1.0 1.0 0.98 1.0 1.0 1.0 1.0
+3826,i need four tickets,1.0 1.0 1.0 1.0
+3827,i need three musical tickets,1.0 1.0 1.0 1.0 0.99
+3828,i need a ticket for thursday night,1.0 1.0 1.0 1.0 1.0 1.0 0.99
+3829,i need three tickets for wicked,1.0 1.0 1.0 1.0 1.0 1.0
+3830,i want a ticket for this musical,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3831,i want tickets for this musical,1.0 1.0 0.85 1.0 1.0 1.0
+3832,i want to sit in the second row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3833,i want tickets for madame tussauds,1.0 1.0 1.0 1.0 1.0 1.0
+3834,i need one ticket,1.0 1.0 1.0 0.85
+3835,i need one musical tickets,1.0 1.0 1.0 1.0 0.6
+3836,a ticket for nights,0.96 0.95 0.93 0.52
+3837,i want tickets for this evening,1.0 1.0 0.99 1.0 0.88 1.0
+3838,i want a ticket for mamma mia,1.0 1.0 0.99 0.99 1.0 1.0 1.0
+3839,i want a ticket for this musical,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3840,i want sit up front,1.0 1.0 1.0 0.99 1.0
+3841,i would like to sit in the front,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3842,i need tickets for the british museum,1.0 1.0 0.62 1.0 1.0 1.0 1.0
+3843,can i also have tickets for the british museum,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3844,i need two tickets,1.0 1.0 1.0 1.0
+3845,i need two musical tickets,1.0 1.0 0.99 1.0 1.0
+3846,i need a ticket for saturday night,1.0 1.0 1.0 1.0 1.0 1.0 0.99
+3847,i need two tickets for the lion king,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3848,i want to sit in the front,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3849,i want tickets for the science museum,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3850,i need one ticket,1.0 1.0 1.0 0.95
+3851,where is the natural history museum,1.0 1.0 1.0 1.0 1.0 1.0
+3852,where is the oxford street,1.0 1.0 1.0 1.0 1.0
+3853,which bus goes there,1.0 1.0 1.0 1.0
+3854,the tower is near the tower bridge,1.0 1.0 1.0 1.0 0.78 1.0 1.0
+3855,where is the natural history museum,1.0 1.0 1.0 1.0 1.0 1.0
+3856,where is the piccadilly circus,1.0 1.0 0.51 1.0 1.0
+3857,which bus goes there,1.0 1.0 1.0 1.0
+3858,the big ben is this night the houses of parliament,0.95 1.0 0.99 1.0 0.68 0.45 1.0 1.0 1.0 1.0
+3859,where is the natural history museum,1.0 1.0 1.0 1.0 1.0 1.0
+3860,you can't use help at the silver level,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3861,where is the tower,1.0 1.0 1.0 1.0
+3862,marble arch is opposite hyde park,1.0 1.0 1.0 0.87 0.93 1.0
+3863,where is the national gallery,1.0 1.0 1.0 1.0 1.0
+3864,where is the big ben,1.0 1.0 1.0 1.0 1.0
+3865,which bus goes there,1.0 1.0 1.0 1.0
+3866,the tower is near tower bridge,1.0 1.0 1.0 1.0 1.0 1.0
+3867,where is the zoo,1.0 1.0 1.0 1.0
+3868,where is madame tussauds,1.0 1.0 1.0 1.0
+3869,which bus goes there,1.0 1.0 1.0 1.0
+3870,the tower is near tower bridge,1.0 1.0 1.0 1.0 1.0 1.0
+3871,i want the an orange juice,1.0 1.0 0.49 1.0 1.0 1.0
+3872,i want an orange juice,1.0 1.0 0.96 1.0 1.0
+3873,i want a hamburger,1.0 1.0 0.92 1.0
+3874,i want my hamburger rare,1.0 1.0 1.0 1.0 1.0
+3875,i want please,1.0 1.0 0.32
+3876,i want please,1.0 1.0 0.62
+3877,i would like some please,1.0 1.0 1.0 1.0 0.82
+3878,yes can i have the dessert card,0.89 1.0 1.0 1.0 1.0 1.0 1.0
+3879,can i have the dessert card,1.0 1.0 1.0 1.0 1.0 1.0
+3880,the dessert menu please,1.0 1.0 1.0 1.0
+3882,can i have the carrot cake,1.0 1.0 1.0 0.98 1.0 1.0
+3883,i would like the bill,1.0 1.0 1.0 1.0 1.0
+3888,no i do not have a reservation,0.99 1.0 1.0 1.0 1.0 1.0 1.0
+3889,a room for two nights,0.8 1.0 1.0 0.99 0.99
+3890,a suite,1.0 1.0
+3891,can i pay with mastercard,0.91 0.97 1.0 1.0 0.95
+3892,where is a water,0.96 0.98 0.95 0.7
+3893,i would like a room for one suite,1.0 1.0 1.0 1.0 1.0 1.0 0.87 0.89
+3894,i'd like a suite,0.99 1.0 1.0 1.0
+3896,is there a grocery store,1.0 1.0 1.0 1.0 1.0
+3897,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+3898,can i have one musical ticket,1.0 1.0 1.0 1.0 1.0 0.68
+3899,a ticket for wednesday evening,0.67 0.68 1.0 1.0 1.0
+3900,a ticket for,0.98 0.98 0.98
+3901,a ticket for morning night,0.88 0.87 0.95 0.97 0.99
+3902,a ticket for tomorrow night,0.83 0.84 1.0 1.0 1.0
+3903,i would like tickets for starlight express,1.0 1.0 1.0 0.78 1.0 1.0 1.0
+3904,tickets for starlight express,0.9 1.0 1.0 1.0
+3905,a ticket for starlight express,0.75 0.74 1.0 1.0 1.0
+3906,i want to sit in the middle,1.0 1.0 1.0 1.0 1.0 1.0 0.98
+3907,can i have tickets for the london eye,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3908,i need four tickets,1.0 1.0 1.0 1.0
+3909,i'm fine,0.99 1.0
+3910,i want boots,1.0 0.97 1.0
+3911,i want white boots,1.0 1.0 1.0 1.0
+3912,thirty six,1.0 0.99
+3913,i want a t-shirt,1.0 1.0 1.0 0.76
+3914,i want a yellow t-shirt,1.0 1.0 1.0 1.0 0.62
+3915,big,0.95
+3916,great,0.99
+3917,i am a large,1.0 1.0 1.0 1.0
+3918,how much is it,1.0 1.0 1.0 1.0
+3919,that's too expensive,1.0 1.0 1.0
+3920,i'm fine,0.99 1.0
+3921,i want sandals,1.0 1.0 0.85
+3922,i want red sandals,1.0 1.0 1.0 1.0
+3923,thirty-eight,0.69
+3924,i want a t-shirt,1.0 1.0 1.0 0.71
+3925,i want a yellow tee shirt,1.0 1.0 1.0 1.0 0.78 0.78
+3926,great,0.99
+3927,great,0.87
+3928,i am a large,1.0 1.0 1.0 1.0
+3929,how much is it,1.0 1.0 1.0 1.0
+3930,the t-shirt is too expensive,1.0 1.0 1.0 1.0 1.0
+3931,i'm fine,1.0 1.0
+3932,i want boots,1.0 0.98 1.0
+3933,i want brown boots,1.0 1.0 1.0 1.0
+3934,thirty nine,1.0 1.0
+3935,i want a t-shirt,1.0 1.0 1.0 0.78
+3936,i want a brown t-shirt,1.0 1.0 0.99 1.0 1.0
+3938,how much is this t-shirt,1.0 1.0 0.89 0.71 0.9
+3940,i'm fine,0.96 1.0
+3941,i want sandals,1.0 1.0 1.0
+3942,i want white sandals,1.0 1.0 1.0 1.0
+3943,forty four,0.76 0.76
+3944,i will pants,1.0 0.41 1.0
+3945,i'm looking for trousers,0.7 1.0 1.0 1.0
+3946,i want red trousers,1.0 1.0 1.0 1.0
+3947,small,1.0
+3948,how much are this grocery,1.0 1.0 0.91 0.73 0.72
+3949,how much does the trousers coast,1.0 1.0 1.0 1.0 1.0 0.98
+3950,this is too expensive,0.5 1.0 1.0 1.0
+3952,my name is sarah,1.0 1.0 1.0 1.0
+3953,i'm from italy,0.95 1.0 1.0
+3954,the capital of italy is rome,1.0 1.0 1.0 1.0 1.0 1.0
+3955,i have two brothers,1.0 0.98 0.82 1.0
+3956,i have one brother,1.0 1.0 1.0 0.99
+3958,this is my passport,1.0 1.0 1.0 1.0
+3959,yes it is my passport,1.0 0.97 1.0 1.0 1.0
+3960,my name is michelle,1.0 1.0 1.0 1.0
+3961,i'm from germany,0.97 1.0 1.0
+3962,the capital of germany is berlin,1.0 1.0 1.0 0.94 1.0 1.0
+3963,i have four older brothers,1.0 1.0 1.0 1.0 1.0
+3966,yes it is my passport,0.98 0.97 1.0 1.0 1.0
+3967,i need a ticket to green park,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3968,i would like to pay by credit card,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3969,i need two tickets to london,1.0 1.0 1.0 1.0 1.0 1.0
+3970,i want to leave on friday morning,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3971,my name is silvia,1.0 1.0 0.95 0.95
+3972,i'm from england,0.89 1.0 1.0
+3973,i need six tickets to london,1.0 1.0 1.0 1.0 1.0 1.0
+3974,i want to leave on friday night,1.0 1.0 1.0 1.0 1.0 1.0 0.91
+3975,my name is stephanie,1.0 1.0 1.0 0.98
+3976,i'm from germany,0.98 1.0 1.0
+3977,i need two tickets to london,1.0 1.0 1.0 1.0 1.0 1.0
+3978,i want to leave at eight o'clock tomorrow,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3979,how much is it,1.0 1.0 1.0 1.0
+3980,i want a cheaper ticket,1.0 1.0 1.0 1.0 1.0
+3981,this is okay,1.0 1.0 1.0
+3982,my name is paul,1.0 1.0 1.0 0.98
+3983,i'm from australia,0.98 1.0 0.89
+3986,no i don't no i do not have a reservation,1.0 1.0 1.0 0.99 1.0 1.0 1.0 1.0 1.0 1.0
+3987,a room for six nights,1.0 1.0 1.0 1.0 1.0
+3988,a double room,0.98 1.0 1.0
+3989,i would like a double room,1.0 1.0 1.0 1.0 1.0 1.0
+3991,is there a lift,1.0 1.0 1.0 1.0
+3992,i need two musical tickets,1.0 1.0 0.98 1.0 1.0
+3993,i need two tickets for sunday night,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+3995,i would like to sit in the fifth row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.96 1.0
+3996,i need tickets for the science museum,1.0 1.0 0.86 1.0 1.0 1.0 1.0
+3997,i need one ticket,1.0 0.99 0.96 0.94
+3998,i need two musical tickets,1.0 1.0 0.99 1.0 1.0
+3999,i need two tickets for two nights,1.0 1.0 1.0 1.0 1.0 0.78 0.78
+4000,i need two tickets for mamma mia,1.0 1.0 0.96 1.0 1.0 1.0 1.0
+4001,i need a ticket a ticket for this musical,1.0 1.0 0.9 1.0 0.99 0.99 1.0 1.0 1.0
+4002,i need a ticket for this musical,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4003,i want to sit in the back,1.0 1.0 1.0 1.0 1.0 1.0 0.98
+4004,i need a ticket for the british museum,1.0 1.0 0.78 0.79 1.0 1.0 1.0 1.0
+4005,i need three tickets,1.0 0.97 1.0 1.0
+4006,i want a room for five nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4007,i want a double room,1.0 1.0 1.0 1.0 1.0
+4008,a twin room please,1.0 1.0 1.0 1.0
+4009,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+4010,i would pay with euros,1.0 0.72 1.0 1.0 0.99
+4011,are there a hotel restaurant,0.98 1.0 1.0 1.0 1.0
+4012,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4014,i have no reservation,1.0 1.0 1.0 1.0
+4015,no i don't no i do not have a reservation,1.0 1.0 1.0 0.99 1.0 1.0 1.0 1.0 1.0 1.0
+4016,no i don't have a reservation,1.0 1.0 1.0 1.0 1.0 1.0
+4017,a room for two nights,1.0 1.0 1.0 1.0 1.0
+4018,i'd like a suite,0.83 1.0 1.0 1.0
+4019,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+4020,is there a lift,1.0 1.0 1.0 1.0
+4021,a room for three nights,1.0 1.0 1.0 1.0 1.0
+4022,i'd like a junior suite,0.66 1.0 1.0 1.0 1.0
+4023,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+4024,is there a grocery store,1.0 1.0 1.0 1.0 1.0
+4025,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4026,i would like a single room,1.0 1.0 1.0 1.0 1.0 1.0
+4028,is there a hairdresser,1.0 1.0 1.0 1.0
+4029,where is the hairdresser,1.0 1.0 1.0 1.0
+4030,i want a room for five nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4031,where is the hairdresser,1.0 1.0 1.0 1.0
+4032,a room for five nights,1.0 1.0 1.0 1.0 1.0
+4033,a twin room,1.0 1.0 1.0
+4034,i want to pay with a credit card,1.0 1.0 1.0 1.0 1.0 0.77 1.0 1.0
+4035,do you have a hairdresser,0.98 0.99 1.0 1.0 1.0
+4036,where is the hairdresser,1.0 1.0 1.0 1.0
+4037,my bathroom is dirty,1.0 1.0 1.0 1.0
+4038,where is the hairdryer boots,1.0 1.0 1.0 0.92 0.67
+4039,where is the hairdryer,1.0 1.0 1.0 0.96
+4040,where is the hairdresser,1.0 1.0 1.0 0.94
+4041,a room for three nights,1.0 1.0 1.0 1.0 1.0
+4042,a twin room,0.99 1.0 1.0
+4043,i would like to pay with mastercard,1.0 1.0 1.0 1.0 1.0 1.0 0.98
+4044,do you have a hotel bar,1.0 1.0 1.0 1.0 1.0 1.0
+4045,where is the hotel bar,1.0 1.0 1.0 1.0 1.0
+4046,my toilet is dirty,1.0 1.0 1.0 1.0
+4047,in the room is,1.0 1.0 1.0 1.0
+4048,the room has not a hairdryer,0.99 1.0 0.97 1.0 0.96 1.0
+4049,in the room isn't a hairdryer,1.0 1.0 1.0 1.0 1.0 1.0
+4050,a room for six nights,1.0 1.0 1.0 1.0 1.0
+4051,a twin room,1.0 1.0 1.0
+4052,a ticket to trafalgar square,1.0 1.0 1.0 1.0 1.0
+4053,a ticket to trafalgar square,1.0 1.0 1.0 1.0 1.0
+4058,can i pay by mastercard,1.0 1.0 1.0 1.0 0.97
+4061,can i have a ticket to trafalgar square,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4062,can i pay with visa costs,1.0 1.0 1.0 1.0 1.0 0.85
+4063,can i pay with dollars,1.0 1.0 1.0 1.0 0.32
+4064,can i pay with euro,1.0 1.0 1.0 1.0 0.68
+4065,can i have three musical tickets,1.0 1.0 1.0 1.0 1.0 0.97
+4066,can i go this evening,1.0 1.0 1.0 0.99 1.0
+4067,i want to go this evening,1.0 1.0 1.0 0.99 0.79 0.76
+4068,can i pay with visa,1.0 1.0 0.99 0.99 0.64
+4069,i want two tickets for the phantom of the opera,1.0 1.0 0.46 0.98 1.0 1.0 1.0 1.0 1.0 1.0
+4070,i would like tickets for tonight,0.94 0.94 0.96 0.58 0.98 0.61
+4071,i want to pay with visa,0.99 1.0 0.94 0.78 0.67 0.78
+4072,single room,0.68 0.66
+4073,can i have tickets for the london eye,1.0 1.0 1.0 0.98 1.0 1.0 1.0 1.0
+4075,i would like four tickets for tomorrow evening,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4079,i want steak rare,1.0 0.84 1.0 1.0
+4080,i want a rare steak,1.0 1.0 0.99 0.99 0.86
+4081,i would like to have a steak rare,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4083,i would like to have some of this mashed potato,1.0 1.0 1.0 1.0 1.0 0.81 0.66 0.87 1.0 0.88
+4085,i would like the dessert card,1.0 1.0 1.0 1.0 0.99 1.0
+4087,i would like white boots,1.0 1.0 1.0 1.0 1.0
+4088,i would like white boots,1.0 1.0 1.0 1.0 1.0
+4089,forty one,0.67 0.67
+4090,forty one,0.95 0.95
+4091,i want some jeans,1.0 1.0 1.0 1.0
+4092,i would like some jeans,1.0 1.0 1.0 0.9 1.0
+4093,i want white jeans,1.0 1.0 1.0 1.0
+4094,big,1.0
+4095,big,1.0
+4097,how much does the jeans cost,1.0 1.0 0.27 0.99 1.0 1.0
+4098,no this is too expensive,0.46 0.77 0.99 1.0 1.0
+4099,which bus drives there,1.0 1.0 1.0 1.0
+4100,marble arch is opposite hyde park,1.0 1.0 1.0 0.72 1.0 1.0
+4102,is there a lift,1.0 1.0 1.0 1.0
+4103,and where is the lift,0.59 0.99 0.99 0.99 0.99
+4104,where is the lift,0.99 1.0 1.0 1.0
+4105,where is the lift,1.0 1.0 1.0 1.0
+4106,i'm from germany,0.72 1.0 0.99
+4107,i'm from spain,0.88 1.0 1.0
+4108,i would like to leave tomorrow at four pm,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.8 0.56
+4109,i'm from austria,0.9 1.0 0.98
+4110,my name is janet,1.0 1.0 1.0 0.99
+4111,i'm from austria,0.89 1.0 0.99
+4112,my name is erica,1.0 1.0 1.0 1.0
+4113,where is the hairdresser,1.0 1.0 1.0 1.0
+4114,i want to pay with mastercard,1.0 1.0 1.0 1.0 1.0 0.95
+4115,where is the supermarket,0.67 0.4 0.49 1.0
+4116,is there a grocery store,1.0 1.0 1.0 1.0 1.0
+4117,is there a grocery store,1.0 1.0 1.0 1.0 1.0
+4118,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4119,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4120,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4121,i want to leave at ten o'clock tomorrow,1.0 1.0 1.0 1.0 1.0 0.62 1.0 1.0
+4122,i would like to leave at ten o'clock tomorrow,1.0 1.0 1.0 1.0 1.0 1.0 0.43 1.0 1.0
+4123,i'm from scotland,0.62 1.0 1.0
+4125,single room,1.0 1.0
+4126,a single room please,1.0 1.0 1.0 1.0
+4127,i want to pay with the credit card,0.99 1.0 1.0 1.0 1.0 0.97 1.0 1.0
+4128,i would like pay with my credit card,0.94 1.0 0.94 0.88 1.0 0.93 1.0 1.0
+4129,i want to pay by credit card,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4130,is there a hotel bar,1.0 1.0 1.0 1.0 1.0
+4131,i don't have a reservation,1.0 1.0 1.0 1.0 1.0
+4132,a room for seven nights,0.51 1.0 1.0 1.0 1.0
+4133,a single room,1.0 1.0 1.0
+4134,i want to pay by credit card,1.0 0.49 1.0 1.0 1.0 1.0 1.0
+4135,i want to play pay by credit card,1.0 0.91 1.0 0.54 1.0 1.0 1.0 1.0
+4136,i would pay by credit card,1.0 0.96 1.0 1.0 1.0 1.0
+4137,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4138,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4139,a room for three nights,1.0 1.0 1.0 1.0 1.0
+4140,a room for three nights,1.0 1.0 1.0 1.0 1.0
+4141,a room for three nights,1.0 1.0 1.0 1.0 1.0
+4142,single room,1.0 1.0
+4143,a single room,1.0 1.0 1.0
+4144,single room,1.0 1.0
+4145,i want to pay by visa,1.0 1.0 1.0 1.0 1.0 1.0
+4146,i want to pay by visa,1.0 0.72 1.0 1.0 1.0 1.0
+4147,i want to pay by dollars,1.0 0.7 1.0 1.0 1.0 1.0
+4148,is there a hotel bar,1.0 1.0 0.99 0.98 0.98
+4149,is there a hairdresser,1.0 1.0 1.0 1.0
+4150,where is the hairdresser,1.0 1.0 1.0 1.0
+4151,my toilet is dirty,1.0 1.0 1.0 1.0
+4152,in the room there is no shampoo,1.0 1.0 1.0 0.99 0.68 1.0 1.0
+4153,there is no shampoo in the room,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4154,there is no shampoo in the room,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4155,where i can buy shampoo,1.0 1.0 1.0 1.0 1.0
+4156,where can i buy shampoo,1.0 1.0 1.0 1.0 1.0
+4157,four tickets to london,1.0 1.0 1.0 1.0
+4158,four tickets for london,1.0 1.0 1.0 1.0
+4159,four tickets to london,1.0 1.0 1.0 1.0
+4161,i don't have a reservation,1.0 1.0 1.0 1.0 1.0
+4162,is there a room for two nights,0.98 0.98 0.94 0.77 1.0 1.0 1.0
+4164,i would like a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4165,i would pay with post card,1.0 0.88 1.0 1.0 0.94 0.94
+4166,do you have a swimming pool,1.0 1.0 1.0 1.0 1.0 1.0
+4167,where is the swimming pool,1.0 1.0 1.0 1.0 1.0
+4168,i want to have a room for one week,0.87 0.67 0.64 1.0 1.0 1.0 1.0 1.0 1.0
+4171,twin room,0.45 0.92
+4172,a twin room please,0.99 1.0 1.0 1.0
+4174,i want to pay with credit card,0.97 0.98 1.0 1.0 1.0 1.0 1.0
+4175,supermarket,1.0
+4176,is there a supermarket,1.0 1.0 0.98 1.0
+4177,is there a grocery store,1.0 1.0 1.0 1.0 1.0
+4178,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4179,the toilet is dirty,1.0 0.9 1.0 1.0
+4180,i could not i could not find,1.0 0.73 1.0 1.0 0.91 1.0 0.9
+4181,i could not find a hairdryer,1.0 0.95 1.0 1.0 0.57 1.0
+4182,i could not find a hairdryer,1.0 1.0 1.0 1.0 0.48 1.0
+4183,where i can buy a hairdryer,1.0 1.0 1.0 1.0 1.0 1.0
+4184,where can i buy a hairdryer,1.0 1.0 1.0 1.0 1.0 1.0
+4185,i'm good,0.54 0.87
+4186,no i haven't,1.0 1.0 0.89
+4187,no i haven't a reservation,1.0 1.0 0.66 0.66 1.0
+4188,no i haven't got a reservation,1.0 1.0 1.0 0.8 0.99 1.0
+4189,a room for two nights,0.97 1.0 1.0 1.0 1.0
+4190,a double room,0.98 1.0 1.0
+4191,a room for two person,1.0 1.0 1.0 0.95 0.98
+4192,i would like a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4194,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4195,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4196,i don't have a ticket to london,0.56 0.48 1.0 1.0 1.0 1.0 1.0
+4197,i want one ticket to london,1.0 1.0 1.0 1.0 0.97 0.92
+4199,i would like to leave tomorrow at four pm,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.54 0.38
+4200,my name is michelle,1.0 1.0 1.0 1.0
+4201,i'm from canada,0.84 1.0 1.0
+4202,my name is andy,1.0 1.0 1.0 1.0
+4203,i'm from germany,0.92 1.0 1.0
+4204,the capital of my country is dirty,1.0 1.0 0.97 1.0 0.64 1.0 0.55
+4205,the capital of germany is berlin,0.95 1.0 1.0 0.99 1.0 1.0
+4206,i have two older sisters,1.0 1.0 1.0 1.0 1.0
+4207,i am on holiday,0.58 0.58 1.0 0.85
+4208,this is my passport,1.0 1.0 1.0 1.0
+4209,i would,1.0 0.64
+4210,i want good,0.74 0.32 0.53
+4211,i will buy with credit card,1.0 0.57 0.99 1.0 1.0 1.0
+4212,i will pay with credit card,1.0 0.91 1.0 1.0 1.0 1.0
+4213,is there a fitness studio,1.0 0.99 1.0 1.0 1.0
+4214,where is the fitness studio,1.0 1.0 1.0 1.0 1.0
+4215,where is the fitness studio,1.0 1.0 1.0 1.0 1.0
+4216,a suite jack is brian,0.62 0.93 0.64 0.46 0.36
+4217,where is the lion,1.0 1.0 1.0 0.46
+4219,can i have a room for three nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4220,can i have a junior suite,1.0 1.0 1.0 0.57 0.55 0.55
+4222,i like to pay with post card,0.73 0.87 0.55 0.76 1.0 0.91 0.91
+4223,is there a hairdresser,1.0 1.0 1.0 1.0
+4224,where is the hairdresser,1.0 1.0 0.98 1.0
+4225,where is the hairdresser,1.0 1.0 0.98 1.0
+4226,where is the science museum,1.0 1.0 1.0 1.0 1.0
+4227,where is the natural history museum,1.0 1.0 1.0 0.78 0.8 0.99
+4228,where is the science museum,1.0 1.0 1.0 1.0 1.0
+4229,where is the tower,1.0 1.0 1.0 1.0
+4230,where is the tower,1.0 1.0 1.0 0.96
+4231,can you give me a ticket to the tower of london,1.0 1.0 1.0 1.0 0.61 0.59 1.0 1.0 0.99 1.0 1.0
+4232,which bus goes there,1.0 1.0 0.99 1.0
+4233,i would like want a room for one room are is is the hotel bar,1.0 0.94 0.94 0.28 0.98 0.81 0.79 0.59 0.68 0.35 0.91 0.44 0.86 0.93 0.89
+4234,portugal is not a water with buy with a credit card,0.23 0.97 0.86 0.95 0.93 0.72 0.84 0.59 0.46 0.99 0.99
+4236,i don't have a reservation,1.0 1.0 1.0 1.0 1.0
+4237,i haven't a reservation,1.0 1.0 1.0 1.0
+4238,i don't have a reservation,1.0 1.0 1.0 1.0 1.0
+4239,i haven't a reservation,1.0 1.0 0.94 1.0
+4240,i am a thirty seven,1.0 1.0 1.0 0.74 0.74
+4241,i have not a reservation,1.0 1.0 1.0 1.0 1.0
+4243,no younger dollars,0.93 0.39 0.49
+4244,i don't have a reservation,1.0 1.0 1.0 0.98 1.0
+4245,you are a double room,0.5 0.48 0.93 0.98 0.95
+4246,room for london,0.92 0.91 0.48
+4247,i don't have a reservation,1.0 0.95 1.0 0.99 1.0
+4248,i would by euro,0.45 0.27 0.53 0.53
+4249,ah i,0.73 0.28
+4250,can i have a room for three nights please a hotel room for a room for three nights,0.65 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.76 0.81 1.0 0.9 0.88 0.96 1.0 1.0 1.0
+4252,a suite,0.81 0.97
+4254,i want pay with visa,1.0 1.0 1.0 1.0 1.0
+4255,is there a fitness studio,0.99 1.0 1.0 1.0 1.0
+4256,where is the fitness studio,1.0 1.0 1.0 1.0 1.0
+4257,where is the fitness studio,1.0 1.0 1.0 1.0 1.0
+4258,where is the fitness studio,1.0 1.0 1.0 1.0 1.0
+4259,can i have four musical tickets,1.0 1.0 1.0 0.36 1.0 0.6
+4260,i would like to buy four musical,1.0 1.0 1.0 0.98 0.98 0.89 0.76
+4261,i want a four musical tickets,1.0 0.94 0.94 0.99 1.0 0.99
+4262,thirty ticket go monday night,0.53 0.58 1.0 1.0 1.0
+4264,no i don't have a reservation,0.6 1.0 1.0 1.0 1.0 1.0
+4265,i'm fine,0.57 1.0
+4266,i would to have boots,0.95 0.6 0.99 1.0 0.76
+4267,i would like some boots,1.0 1.0 1.0 1.0 1.0
+4268,i would like white boots,1.0 1.0 1.0 1.0 1.0
+4269,thirty nine,0.86 0.82
+4270,i would like a t-shirt,1.0 1.0 1.0 1.0 0.97
+4271,i would like a t-shirt,1.0 1.0 1.0 1.0 0.96
+4272,i would like a t-shirt,1.0 1.0 1.0 1.0 0.97
+4273,i'm fine,0.84 1.0
+4274,i would like sandals,1.0 1.0 1.0 0.93
+4276,i would like red sandals,1.0 1.0 1.0 0.92 1.0
+4277,red sandals,1.0 1.0
+4278,forty two,0.88 0.88
+4279,i would like trousers,1.0 1.0 1.0 1.0
+4280,i am looking for trousers,1.0 1.0 1.0 1.0 1.0
+4281,i would like pink trousers,1.0 1.0 1.0 0.67 0.99
+4283,how much does the trousers cost,1.0 1.0 0.99 1.0 1.0 0.99
+4284,this trousers is too dryer,0.9 0.94 0.81 0.58 0.92
+4286,i am looking for the natural natural history museum,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4287,i am looking for the natural history museum,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4288,where are the big ben,1.0 0.99 0.94 0.94 0.94
+4289,where is the big ben,1.0 1.0 1.0 1.0 1.0
+4290,which bus goes there,1.0 1.0 1.0 1.0
+4291,marble arch is i with phillies the hyde park,1.0 1.0 1.0 0.63 0.64 0.13 0.55 0.99 0.99
+4292,a ticket to notting hill,0.75 0.67 1.0 0.85 1.0
+4293,a ticket to notting hill,0.6 0.54 1.0 0.9 1.0
+4294,i would like a ticket to notting hill,1.0 1.0 1.0 1.0 1.0 1.0 0.95 1.0
+4296,can i pay with the mastercard,1.0 1.0 1.0 1.0 1.0 0.84
+4297,can i pay with mastercard,1.0 1.0 1.0 1.0 0.95
+4299,i would like forty three five tickets to london,1.0 1.0 1.0 0.7 0.89 1.0 1.0 1.0 1.0
+4300,i would like five tickets to london,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4302,i would like to leave on sunday afternoon,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4304,my name is sarah,1.0 1.0 1.0 0.89
+4305,i am from ostrich,0.59 0.59 1.0 1.0
+4306,my name is silvia,1.0 1.0 1.0 0.94
+4307,i'm from england,0.78 1.0 1.0
+4308,ticket to the piccadilly circus,0.92 1.0 1.0 1.0 1.0
+4309,i want a ticket to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 0.98
+4310,i want a ticket to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 0.99
+4311,i want pay with the mastercard,1.0 1.0 0.98 1.0 0.93 0.86
+4312,can i pay with mastercard,1.0 1.0 1.0 0.73 0.93
+4313,four musical tickets,0.99 1.0 1.0
+4314,i want pay four musical tickets,1.0 0.71 1.0 1.0 1.0 1.0
+4315,i would like to buy four musical tickets,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4317,four tickets for wednesday evening,1.0 1.0 1.0 1.0 1.0
+4318,i want four tickets for wednesday night,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4319,i want four tickets for the phantom of the opera,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4321,i would like to sit in the front,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4322,tickets for the london eye,1.0 1.0 1.0 1.0 0.58
+4323,tickets for the london eye,0.99 1.0 0.99 1.0 0.92
+4324,can i also have tickets for the london eye,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.94
+4325,two tickets,1.0 1.0
+4326,can i have two tickets,1.0 1.0 1.0 1.0 0.99
+4327,i would like a lemonade,1.0 1.0 1.0 1.0 0.99
+4328,i would like a hamburger,1.0 1.0 1.0 1.0 1.0
+4329,i would like my hamburger rare,1.0 1.0 1.0 1.0 1.0 1.0
+4330,i would like my hamburger rare,1.0 1.0 1.0 1.0 1.0 1.0
+4331,i would like my hamburger rare,1.0 1.0 1.0 1.0 1.0 1.0
+4332,i would like a junior suite,1.0 1.0 1.0 0.59 0.43 0.47
+4333,could i have some older jeans,1.0 1.0 1.0 0.89 0.77 0.91
+4334,i would like the dessert card,1.0 1.0 1.0 0.99 0.99 1.0
+4335,i would like the dessert card,1.0 1.0 1.0 0.98 0.94 0.66
+4336,the dessert menu,0.92 0.99 1.0
+4337,i would like the custard tart,1.0 1.0 1.0 1.0 1.0 1.0
+4338,i would like the steak,1.0 1.0 1.0 0.99 0.99
+4339,i would like the check,1.0 1.0 1.0 1.0 1.0
+4340,i would like pay with the credit card,1.0 1.0 1.0 1.0 1.0 0.81 1.0 1.0
+4343,i'm fine,0.69 1.0
+4344,i'm good,0.79 0.54
+4346,i would like sandals,1.0 1.0 1.0 0.56
+4347,i would like sandals,1.0 1.0 1.0 0.99
+4348,i would like brown sandals,1.0 1.0 1.0 0.54 0.93
+4349,forty one,0.94 0.95
+4350,i want a t-shirt,1.0 1.0 1.0 0.9
+4351,i want a red tee shirt,1.0 1.0 0.96 0.98 0.79 0.8
+4352,i am good,0.98 0.98 0.63
+4353,isn't,0.34
+4354,ticket ah,0.65 0.32
+4355,how much does the t-shirt,1.0 1.0 0.99 0.86 0.75
+4357,i would like some boots,1.0 1.0 1.0 0.6 0.6
+4358,i am room,0.71 0.71 1.0
+4359,i would like some boots,1.0 1.0 1.0 0.99 1.0
+4360,i would like white boots,1.0 1.0 1.0 0.99 0.98
+4361,a hairdryer,0.91 0.49
+4362,forty three,0.56 0.67
+4363,no i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4364,i want a room for two nights,1.0 1.0 1.0 1.0 1.0 0.99 1.0
+4365,can i have a single room,1.0 1.0 1.0 1.0 1.0 1.0
+4366,can i pay with mastercard,1.0 1.0 1.0 1.0 0.95
+4368,is there a gym,1.0 1.0 1.0 1.0
+4369,where is the gym,1.0 1.0 1.0 1.0
+4370,no i do not have a reservation,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4371,i want a room for four nights,1.0 1.0 1.0 1.0 1.0 0.99 1.0
+4372,can i will have a single room please,1.0 1.0 0.52 1.0 1.0 1.0 1.0 1.0
+4373,i want pay with credit card,1.0 1.0 1.0 1.0 1.0 1.0
+4374,is there a hotel restaurant,0.97 1.0 1.0 1.0 1.0
+4375,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4377,can i have a room for six nights,0.98 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4380,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4381,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4382,can i have a room for five nights,0.89 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4383,can i have a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4384,i want pay with credit card,1.0 1.0 1.0 1.0 1.0 1.0
+4385,is there a grocery store,0.97 1.0 1.0 1.0 1.0
+4386,where is the grocery store,1.0 1.0 1.0 1.0 1.0
+4387,i have not a reservation,1.0 0.94 0.93 1.0 1.0
+4388,you can't use help at the silver level,0.94 0.96 0.96 0.98 0.98 0.98 0.98 0.98
+4389,i want a reservation,0.99 0.55 0.57 1.0
+4390,i do not a reservation,1.0 0.96 0.97 0.99 1.0
+4392,i have no reservation,1.0 1.0 0.73 1.0
+4394,the can't of master room,0.79 0.65 0.54 0.5 0.36
+4395,you can't use help at the silver level,1.0 1.0 0.99 1.0 1.0 1.0 1.0 1.0
+4396,my name is thomas,1.0 1.0 1.0 1.0
+4397,i'm from ireland,0.91 1.0 1.0
+4398,i want one ticket to london,1.0 1.0 1.0 1.0 1.0 1.0
+4399,i want to leave at six p m tomorrow,1.0 1.0 1.0 1.0 1.0 0.99 0.64 0.64 1.0
+4400,my name is thomas,1.0 1.0 1.0 1.0
+4401,i'm from spain,0.93 1.0 1.0
+4402,my name is patrick,1.0 1.0 1.0 0.99
+4403,i'm from switzerland switzerland,0.92 1.0 1.0 0.98
+4404,the capital city of swiss is rome,1.0 1.0 1.0 0.99 0.7 1.0 0.7
+4405,the capital of switzerland is bern,1.0 1.0 1.0 1.0 1.0 1.0
+4406,i have three older brothers,0.99 1.0 1.0 1.0 0.97
+4408,i going on holidays,0.98 0.56 0.53 1.0
+4409,this is my passport,0.94 1.0 1.0 1.0
+4410,yes it's my passport,1.0 0.82 1.0 1.0
+4411,i have a ticket to notting hill,0.97 1.0 1.0 1.0 1.0 0.94 1.0
+4412,pay with visa,1.0 1.0 1.0
+4413,can i pay with visa,1.0 1.0 1.0 1.0 1.0
+4415,can i have one musical ticket,1.0 1.0 1.0 1.0 1.0 0.98
+4417,i want to go on tuesday evening,1.0 1.0 1.0 1.0 0.99 1.0 0.83
+4418,uh tickets for mamma mia,0.52 0.75 1.0 1.0 1.0
+4419,i want one ticket for mamma mia,0.92 0.9 0.99 0.99 1.0 1.0 1.0
+4420,i would like to sit in the sixth row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.65 1.0
+4421,i want to sit in the fifth row,1.0 1.0 1.0 1.0 1.0 1.0 0.54 1.0
+4422,i would like tickets for the national gallery,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4423,can i have two tickets please,1.0 1.0 1.0 1.0 0.98 1.0
+4424,i want a room for four nights please,1.0 1.0 0.88 1.0 1.0 1.0 1.0 0.99
+4425,can i have a double room please,1.0 1.0 1.0 1.0 0.97 1.0 1.0
+4426,i want pay with visa card,1.0 1.0 1.0 1.0 1.0 0.72
+4427,i want pay with visa,1.0 1.0 1.0 1.0 1.0
+4428,i want pay with visa,1.0 1.0 1.0 1.0 1.0
+4429,is there a hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4430,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4431,where is the hotel restaurant,1.0 1.0 1.0 1.0 1.0
+4432,where is the national gallery,1.0 1.0 1.0 1.0 1.0
+4433,where is the piccadilly circus,1.0 1.0 0.99 1.0 1.0
+4434,where is the piccadilly circus,1.0 1.0 1.0 1.0 1.0
+4435,where is the piccadilly circus,1.0 1.0 1.0 1.0 0.9
+4436,is near the bank of england near the bank of england,0.77 0.72 0.98 1.0 1.0 1.0 0.88 1.0 1.0 1.0 1.0
+4437,it is near the bank of england,0.45 1.0 1.0 0.91 1.0 1.0 1.0
+4438,i am good,0.7 0.7 1.0
+4439,i would like some boots,1.0 1.0 1.0 0.49 1.0
+4440,i would like white boots please,0.99 1.0 1.0 0.96 0.97 0.81
+4441,i would like white boots,1.0 1.0 1.0 0.96 1.0
+4442,westminster forty forty-two,0.22 0.36 0.64
+4443,i would like a t-shirt,1.0 1.0 1.0 1.0 0.98
+4444,i would like a t-shirt,1.0 1.0 1.0 1.0 0.98
+4445,i would like a yellow t-shirt,1.0 1.0 1.0 1.0 1.0 0.79
+4446,small,1.0
+4447,how much is this t-shirt,1.0 1.0 0.99 0.99 0.98
+4449,this is too cher,1.0 0.99 0.99 0.8
+4450,it's too expensive,0.84 1.0 1.0
+4451,i'm good,0.65 0.61
+4452,i am looking for sandals,1.0 1.0 1.0 1.0 0.99
+4453,i would like blue sandals,1.0 1.0 1.0 0.96 0.98
+4454,blue sandals please,0.6 1.0 1.0
+4455,forty forty-three,0.47 0.38
+4456,i have four sisters,1.0 0.88 0.88 0.88
+4457,i want a shirt,1.0 1.0 0.98 0.99
+4458,i want a shirt,1.0 1.0 0.99 1.0
+4459,i would like a t-shirt,1.0 1.0 1.0 1.0 0.78
+4460,big,0.7
+4461,the too pie,0.55 0.46 0.45
+4462,this is too tight,0.86 0.99 0.96 0.89
+4463,i do not want this shirt,1.0 1.0 1.0 1.0 1.0 0.84
+4464,no i do not want this,1.0 1.0 1.0 1.0 1.0 0.61
+4465,i have not a reservation,1.0 1.0 0.97 0.97 1.0
+4466,i am from italy is rome,0.61 0.58 0.84 0.61 0.86 0.84
+4468,i want a ticket to piccadilly circus,1.0 0.97 1.0 1.0 1.0 1.0 1.0
+4470,i four tickets room,0.49 0.41 0.78 1.0
+4471,i would like,0.99 0.51 0.49
+4472,i would like four tickets to london,1.0 1.0 1.0 1.0 1.0 0.92 0.92
+4473,i want to leave on tuesday evening,1.0 1.0 1.0 1.0 0.94 0.98 1.0
+4474,my name is nick,1.0 1.0 1.0 0.98
+4475,i'm from austria,0.89 1.0 0.99
+4476,i would like two tickets room,1.0 1.0 1.0 0.97 0.99 0.97
+4477,i want to leave on sunday,0.99 1.0 1.0 1.0 1.0 1.0
+4478,my name is patrick,1.0 1.0 1.0 0.69
+4479,can i have three tickets to london,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4480,i want to leave at saturday evening,0.98 0.81 1.0 1.0 1.0 0.96 1.0
+4481,my name is barbara,1.0 1.0 1.0 1.0
+4482,i'm from australian,0.86 1.0 0.66
+4483,i'm from is thomas,0.72 0.97 0.65 0.26
+4484,my name is james,1.0 1.0 1.0 0.54
+4485,i'm from italian,0.74 1.0 0.74
+4486,the capital of italian is rome,1.0 1.0 1.0 1.0 1.0 1.0
+4487,i have four museum,1.0 1.0 0.97 0.41
+4488,i have four sisters,1.0 1.0 1.0 1.0
+4489,i go in the holiday,1.0 1.0 0.95 0.96 0.65
+4490,where is my passport,0.93 1.0 1.0 1.0
+4491,my name is silvia,1.0 1.0 1.0 0.94
+4492,i am a australia,0.66 0.56 0.49 0.2
+4493,the capital of spain is madrid,1.0 1.0 1.0 0.87 1.0 1.0
+4494,i have four older sisters,1.0 1.0 1.0 1.0 0.99
+4496,yes this is my passport,0.97 0.92 1.0 1.0 1.0
+4497,my name is erica,1.0 1.0 1.0 1.0
+4498,i'm from australia,0.85 0.99 0.8
+4499,my name is mona,1.0 1.0 1.0 1.0
+4500,i'm from america,0.75 1.0 1.0
+4501,my name is michelle,1.0 1.0 1.0 1.0
+4502,i'm from england,0.58 1.0 1.0
+4503,my name is jack,1.0 1.0 1.0 1.0
+4504,i'm from scotland,0.92 1.0 1.0
+4505,my name is jack,1.0 1.0 1.0 0.99
+4506,i'm from austria,0.8 1.0 0.98
+4507,austria isn't in africa,1.0 1.0 1.0 1.0
+4508,austria is in europe,1.0 1.0 1.0 1.0
+4509,that's okay,0.84 1.0
+4510,that's okay,0.8 0.95
+4511,that is okay,0.98 1.0 0.98
+4512,the capital of austria is please,0.97 1.0 1.0 1.0 1.0 0.46
+4513,i have three older sisters,1.0 1.0 1.0 1.0 0.99
+4514,i have three older sisters,1.0 1.0 1.0 1.0 1.0
+4515,i have three older sisters,0.99 1.0 1.0 1.0 1.0
+4517,this is my passport,1.0 1.0 1.0 1.0
+4518,yes this is my passport,1.0 0.99 1.0 1.0 0.99
+4519,can i have a ticket to the green park,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4520,i would like to buy with credit card,1.0 0.68 0.71 1.0 0.87 1.0 1.0 1.0
+4521,i like buy with pounds,0.97 1.0 1.0 1.0 0.96
+4522,i have only great note,1.0 1.0 1.0 1.0 0.66
+4523,i only have large notes,1.0 1.0 1.0 0.94 0.51
+4524,where where is the a t m,0.69 0.99 0.79 0.78 0.68 0.69 0.7
+4525,where is the a t m,1.0 1.0 1.0 0.97 0.97 0.96
+4526,can i have a ticket to the trafalgar square,1.0 1.0 1.0 1.0 1.0 1.0 0.98 1.0 1.0
+4527,can i pay by post card,1.0 1.0 0.99 1.0 1.0 1.0
+4528,i would like pay by swiss francs,0.72 0.68 0.98 1.0 1.0 1.0 0.62
+4529,i want pay with swiss francs,0.99 0.83 0.92 1.0 1.0 0.99
+4530,can i pay with swiss francs,1.0 1.0 1.0 1.0 1.0 0.99
+4531,i have smaller notes,1.0 1.0 1.0 0.62
+4532,can i have a ticket to notting hill,0.98 1.0 1.0 1.0 1.0 1.0 0.94 1.0
+4533,can i pay with visa visa,1.0 1.0 1.0 1.0 1.0 1.0
+4534,can i pay with euro,1.0 1.0 0.98 1.0 0.92
+4535,i have only big notes,1.0 1.0 1.0 0.99 0.66
+4536,i only have steak notes,1.0 1.0 1.0 0.44 0.38
+4538,can i pay with credit card,1.0 1.0 0.99 1.0 1.0 1.0
+4539,can i pay with credit card,1.0 1.0 0.99 1.0 1.0 1.0
+4540,i like to pay with credit card,0.99 1.0 1.0 0.67 1.0 1.0 1.0
+4541,can i have three musical tickets,1.0 1.0 1.0 1.0 1.0 0.94
+4542,i like to go at tuesday evening,0.86 1.0 1.0 1.0 1.0 1.0 1.0
+4544,can i have three tickets for wicked,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4545,i would like to sit in the fourth row,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4546,can i have tickets for the natural museum,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4547,can i have two tickets,1.0 1.0 1.0 1.0 0.99
+4548,can i have one musical ticket,1.0 1.0 1.0 1.0 1.0 0.96
+4549,i would like to go at friday night,0.83 0.52 1.0 1.0 1.0 0.99 1.0 0.92
+4550,can i have a ticket for friday nights can i have a ticket for friday night,1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.65 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4551,i want a steak,0.98 0.94 0.92 0.74
+4552,can i have a ticket for billy elliot,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4553,i like to sit in the first row,0.58 1.0 0.98 0.98 0.98 0.98 0.98 0.97
+4554,i like to sit in the first row,0.66 1.0 1.0 1.0 1.0 1.0 0.87 1.0
+4556,can i have tickets for the national gallery,1.0 1.0 1.0 0.97 1.0 0.99 1.0 1.0
+4557,can i have four tickets,1.0 1.0 1.0 1.0 1.0
+4558,can i have four musical tickets,1.0 1.0 1.0 1.0 1.0 1.0
+4559,i would like to go at tuesday night,0.98 0.53 1.0 1.0 1.0 0.99 0.99 0.78
+4560,can i have four tickets for wicked,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4562,can i have tickets for the national gallery,1.0 1.0 1.0 0.99 1.0 0.99 1.0 1.0
+4563,can i have three tickets,1.0 1.0 1.0 1.0 1.0
+4564,can i have a tea,1.0 1.0 1.0 1.0 1.0
+4565,i would like a tea,1.0 1.0 1.0 1.0 0.99
+4566,i would like a hamburger,1.0 1.0 1.0 1.0 1.0
+4567,i would like my hamburger medium,0.92 0.92 1.0 1.0 1.0 0.97
+4568,i would like some garlic bread,1.0 1.0 1.0 1.0 1.0 1.0
+4569,can i have the dessert card,1.0 1.0 1.0 0.91 1.0 1.0
+4570,i would like the dessert card,1.0 1.0 1.0 1.0 0.99 1.0
+4571,the dessert menu please,1.0 1.0 1.0 0.95
+4572,can i have a still water,1.0 1.0 1.0 0.99 0.99 1.0
+4573,i would like the sunday roast,1.0 1.0 1.0 0.93 1.0 1.0
+4574,can i have a sunday roast,1.0 1.0 1.0 0.88 1.0 0.97
+4575,i like my sunday roast medium,0.99 1.0 1.0 1.0 1.0 0.99
+4576,can i have some mushroom,1.0 1.0 1.0 1.0 1.0
+4577,this is not what i order,1.0 1.0 1.0 1.0 1.0 0.64
+4578,can i have the dessert menu,1.0 1.0 1.0 1.0 0.99 1.0
+4579,can i have the dessert menu please,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4580,i would like the custard tart,1.0 1.0 1.0 1.0 1.0 1.0
+4581,can i have the bill,1.0 1.0 1.0 1.0 1.0
+4582,i would like to pay by credit card,0.98 0.65 0.99 1.0 1.0 1.0 1.0 1.0
+4583,can i have a hamburger,1.0 1.0 1.0 0.97 0.7
+4584,can i have a steak,1.0 1.0 1.0 1.0 0.96
+4585,i would like my steak medium,0.99 0.99 1.0 1.0 1.0 1.0
+4586,i would like boots,1.0 1.0 1.0 0.92
+4587,i would like some boots,1.0 1.0 1.0 1.0 0.99
+4588,can i have the dessert menu,1.0 1.0 1.0 1.0 0.99 1.0
+4589,can i have the dessert menu,1.0 1.0 1.0 1.0 0.99 1.0
+4590,the dessert menu please,1.0 1.0 1.0 1.0
+4591,can i have a room for,1.0 1.0 1.0 1.0 0.91 0.96
+4592,can i have the steak,1.0 1.0 1.0 0.96 0.98
+4593,can i have a steak,1.0 1.0 1.0 0.58 0.54
+4594,i would like a steak,1.0 1.0 1.0 0.96 1.0
+4595,i would like my steak well done,0.99 0.99 1.0 1.0 1.0 1.0 1.0
+4596,i would like my steak well done,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4597,can i have the soup of the day,1.0 1.0 1.0 0.99 0.99 1.0 1.0 1.0
+4598,that is not what i ordered,0.77 0.99 1.0 1.0 1.0 0.85
+4599,that is not what i order,0.64 1.0 1.0 1.0 1.0 0.8
+4600,this is not what i ordered,1.0 1.0 1.0 1.0 1.0 0.93
+4601,can i have the dessert menu please can i have the dessert menu please,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4602,can i have the dessert menu,1.0 1.0 1.0 1.0 0.99 1.0
+4603,i would like the custard tart,1.0 1.0 1.0 1.0 1.0 1.0
+4604,can i have the bill,1.0 1.0 1.0 1.0 1.0
+4605,i like to pay with credit card,0.59 1.0 1.0 1.0 1.0 1.0 1.0
+4606,can i have a lemonade,1.0 1.0 1.0 1.0 1.0
+4607,can i have the steak,1.0 1.0 1.0 0.96 1.0
+4608,i'd like my steak rare,0.78 1.0 1.0 1.0 1.0
+4609,can i have a cathedral,1.0 0.99 0.51 0.41 0.28
+4610,i have a credit,0.56 0.45 0.53 0.23
+4611,can i have a boots thirty good,0.92 1.0 0.77 0.9 0.58 0.29 0.22
+4612,this is not what what i order,1.0 1.0 1.0 0.5 1.0 1.0 0.82
+4613,can i have the dessert menu,1.0 1.0 1.0 1.0 0.99 1.0
+4614,can i have the dessert menu please,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4615,can i have the dessert menu please,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4617,i would like a citron cake,1.0 1.0 1.0 1.0 1.0 1.0
+4618,i would like a baked potato,1.0 1.0 1.0 0.62 0.44 0.53
+4619,can i have the bill,1.0 1.0 1.0 1.0 1.0
+4620,i would like to pay with credit card,1.0 0.98 1.0 1.0 1.0 1.0 1.0 1.0
+4621,i would like to pay with credit card,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4622,where is the national gallery,1.0 1.0 1.0 1.0 1.0
+4623,where is the piccadilly circus,1.0 1.0 1.0 1.0 1.0
+4624,could you give me directions to piccadilly circus,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4625,which bus can i take,1.0 1.0 1.0 1.0 0.97
+4627,where is the science museum,1.0 1.0 1.0 1.0 1.0
+4628,where is the london room,1.0 1.0 1.0 1.0 0.76
+4629,which bus can i take,1.0 1.0 1.0 1.0 0.98
+4630,the tower is near the tower bridge,1.0 1.0 1.0 1.0 0.76 1.0 1.0
+4631,i don't know,1.0 1.0 0.98
+4632,i would like to go,0.91 0.91 1.0 1.0 1.0
+4634,where is the science museum,1.0 1.0 1.0 1.0 1.0
+4635,the marble arch is cards to hyde park,0.89 1.0 1.0 1.0 0.64 0.98 1.0 1.0
+4636,marble arch suite,0.59 0.52 0.87
+4637,the marble arch is a grocer to hyde park,0.73 1.0 1.0 1.0 0.63 0.32 1.0 1.0 1.0
+4638,where is the british museum,1.0 1.0 1.0 1.0 1.0
+4639,where is the british museum,1.0 1.0 1.0 1.0 1.0
+4640,where is the big ben,1.0 1.0 1.0 0.92 0.92
+4641,which bus can i take,1.0 1.0 1.0 1.0 0.97
+4642,the saint pauls cathedral is near to bank of england,0.94 1.0 1.0 1.0 1.0 1.0 0.91 1.0 1.0 1.0
+4643,where is the science museum,1.0 1.0 1.0 1.0 1.0
+4644,where is the tower,1.0 1.0 1.0 1.0
+4645,where is the tower,1.0 1.0 1.0 1.0
+4646,where is the tower,1.0 1.0 1.0 1.0
+4647,the saint pauls cathedral is near the bank of england,1.0 1.0 1.0 1.0 1.0 1.0 0.94 1.0 1.0 1.0
+4649,i would like sandals,1.0 1.0 1.0 0.6
+4651,i would like red sandals,1.0 1.0 1.0 1.0 1.0
+4652,thirty nine,1.0 1.0
+4653,can i have pool,1.0 1.0 1.0 0.81
+4654,i would like pink jeans,1.0 1.0 1.0 0.78 1.0
+4656,how much are this jeans,1.0 1.0 0.99 0.85 1.0
+4657,how much does the jeans cost,1.0 1.0 1.0 1.0 1.0 1.0
+4658,this is too expensive,1.0 1.0 1.0 1.0
+4659,i'm fine,0.97 1.0
+4660,i would like boots,1.0 1.0 1.0 1.0
+4661,i would like blue boots,1.0 1.0 1.0 1.0 1.0
+4662,thirty seven,0.96 0.96
+4663,can i have a shirt,1.0 1.0 1.0 0.88 0.57
+4664,i would like a yellow shirt,1.0 1.0 1.0 0.99 1.0 0.9
+4667,i am a large,1.0 1.0 1.0 1.0
+4668,how much does it cost,1.0 1.0 1.0 1.0 1.0
+4669,the shirt is too expensive,1.0 0.99 1.0 1.0 1.0
+4670,can i have a room for five nights,1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4671,can i have a suite,1.0 1.0 1.0 0.8 1.0
+4672,can i pay with credit card,1.0 1.0 1.0 1.0 1.0 1.0
+4673,is there a hairdresser,1.0 1.0 1.0 1.0
+4674,where is the hairdresser,1.0 1.0 1.0 1.0
+4675,where is the hairdresser,1.0 1.0 1.0 1.0
+4676,can you give me a hotel restaurant a hairdresser,1.0 1.0 1.0 1.0 0.59 0.55 0.62 0.58 1.0
+4677,can i have a room for one nights,1.0 1.0 1.0 1.0 1.0 1.0 0.44 0.58
+4678,can i have a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4679,can i have a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4680,can i have a double room,1.0 1.0 1.0 1.0 1.0 1.0
+4681,can i pay with mastercard,1.0 1.0 1.0 0.96 0.96
+4682,is there a lift,1.0 1.0 1.0 0.93
+4683,is there a hairdresser,1.0 1.0 1.0 0.89
+4684,is there a lift,1.0 1.0 1.0 0.95
+4685,can i have a ticket to london,1.0 1.0 1.0 0.99 0.99 1.0 1.0
+4686,i want to leave tomorrow at ten o'clock p m,1.0 0.97 0.96 0.93 1.0 1.0 0.76 1.0 0.91 0.91
+4687,my name is john,1.0 1.0 1.0 1.0
+4688,i'm from italy,0.75 1.0 0.98
+4689,can i have four tickets to london,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4690,i want to leave at wednesday night,0.99 0.59 1.0 1.0 1.0 0.99 0.96
+4691,i like to leave at wednesday evening,1.0 1.0 1.0 1.0 0.7 0.97 0.96
+4692,i like to leave at wednesday night,1.0 1.0 1.0 1.0 1.0 1.0 0.98
+4693,my name is janet,0.69 0.46 0.46 0.45
+4694,i'm looking for boots,0.92 0.8 0.68 0.8
+4695,i'm from italy,0.92 1.0 0.94
+4696,can i have three tickets to london,1.0 1.0 1.0 1.0 1.0 1.0 1.0
+4697,i want to leave at sunday,1.0 0.86 1.0 1.0 0.66 0.99
+4698,my name is paolo,1.0 1.0 1.0 1.0
+4699,i'm from swiss,0.85 1.0 0.49
+4700,my name is sarah,1.0 1.0 1.0 1.0
+4701,i'm from portugal,0.8 1.0 1.0
