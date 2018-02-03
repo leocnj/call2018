@@ -5,7 +5,7 @@ import pickle
 def recode_df(df):
     recode = lambda x: 1 if x == 'correct' else 0
     df['language'] = df['language'].apply(recode)
-    df['meanning'] = df['meaning'].apply(recode)
+    df['meaning'] = df['meaning'].apply(recode)
     return df
 
 
