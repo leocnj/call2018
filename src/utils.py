@@ -32,6 +32,18 @@ def get_meaning_y(y):
 
 label_back = lambda x: 'correct' if x==1 else 'incorrect'
 
+def get_D_on_class(lang_pred, y, print=False, CR_adjust=False):
+    scores = init_scores()
+    for i, lang in enumerate(lang_pred):
+        if lang:
+            decision = 'accept'
+        else:
+            decision = 'reject'
+        score_decision(decision, label_back(get_langauge_y(y)[i]), label_back(get_meaning_y(y)[i]), scores)
+    if print:
+        print_scores(scores)
+    return get_D(scores, CR_adjust), get_ICRrate(scores), get_CRrate(scores)
+
 def get_D_on_proba(lang_pred, y, THRES=0.5, print=False, CR_adjust=False):
     scores = init_scores()
     for i, lang in enumerate(lang_pred):

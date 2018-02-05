@@ -9,6 +9,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.feature_selection import RFECV
 from sklearn.preprocessing.data import StandardScaler
 
+from mlens.ensemble import BlendEnsemble, SuperLearner
 from utils import *
 import argparse
 import pandas as pd
@@ -89,31 +90,45 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval):
         model = KNeighborsClassifier()
     elif model_type == 'LR':
         model = LogisticRegression(random_state=SEED)
+    elif model_type == 'Ensemble':
+        # model = BlendEnsemble(random_state=SEED)
+        model = SuperLearner(random_state=SEED) # stacking
+        model.add([RandomForestClassifier(random_state=SEED),
+                   SVC(probability=True, random_state=SEED),
+                   XGBClassifier()], proba=True)
+        model.add_meta(LogisticRegression(random_state=SEED))
     else:
         print('wrong model type {}'.format(model_type))
     cv_score = cross_val_score(model,
                                lang_train_X, lang_train_y,
                                cv=shuffle,
-                               scoring='accuracy', n_jobs=-1)
+                               scoring='accuracy')
     # for test
     model.fit(lang_train_X, lang_train_y)
+
     acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
     print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
-    thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
-    for thres in thres_lst:
-        print('---------------------------------------------------------------------------------------------')
-        Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
-        # D on the REAL test set.
-        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
+    if model_type == 'Ensemble':
+         # mlens has a issue when predict_proba(), now can only use its predict()
+         D_test, ICR_test, CR_test = get_D_on_class(model.predict(lang_test_X), test_y, print=False,
                                                    CR_adjust=False)
-        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
-                                                                                                            Ds.mean(),
-                                                                                                            ICRs.mean(),
-                                                                                                            CRs.mean(),
-                                                                                                            D_test,
-                                                                                                            ICR_test,
-                                                                                                            CR_test))
+         print('Test D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(D_test, ICR_test, CR_test))
+    else:
+        thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
+        for thres in thres_lst:
+            print('---------------------------------------------------------------------------------------------')
+            Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
+            # D on the REAL test set.
+            D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
+                                                       CR_adjust=False)
+            print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
+                                                                                                                Ds.mean(),
+                                                                                                                ICRs.mean(),
+                                                                                                                CRs.mean(),
+                                                                                                                D_test,
+                                                                                                                ICR_test,
+                                                                                                                CR_test))
 
 if __name__ == '__main__':
 
