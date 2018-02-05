@@ -34,8 +34,7 @@ def prep_data(train_csv):
     dfs = [] # support multi files
     for csv_ in train_csv:
         dfs.append(pd.read_csv(csv_))
-
-    df_ta = pd.concat(dfs)
+    df_ta = pd.concat(dfs, join='inner')
 
     X = df_ta.iloc[:, 3:].values
     y = get_langauge_y(df_ta)

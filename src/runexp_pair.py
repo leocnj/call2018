@@ -30,8 +30,14 @@ def get_meaning_y(df):
 
 
 def prep_data(train_csv, test_csv):
-    df_ta = pd.read_csv(train_csv)
+    # df_ta = pd.read_csv(train_csv)
+    dfs = [] # support multi files
+    for csv_ in train_csv:
+        dfs.append(pd.read_csv(csv_))
+    df_ta = pd.concat(dfs, join='inner') #
+    print('df_ta shape {}'.format(df_ta.shape))
     df_ts = pd.read_csv(test_csv)
+    print('df_ts shape {}'.format(df_ts.shape))
 
     X = df_ta.iloc[:, 3:].values
     y = df_ta['language'].values
@@ -120,7 +126,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
-    parser.add_argument('--train', type=str, help='train csv', required=True)
+    parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
     parser.add_argument('--test', type=str, help='test csv', required=True)
     args = parser.parse_args()
 
