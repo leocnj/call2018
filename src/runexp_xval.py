@@ -30,7 +30,12 @@ def get_meaning_y(df):
 
 
 def prep_data(train_csv):
-    df_ta = pd.read_csv(train_csv)
+
+    dfs = [] # support multi files
+    for csv_ in train_csv:
+        dfs.append(pd.read_csv(csv_))
+
+    df_ta = pd.concat(dfs)
 
     X = df_ta.iloc[:, 3:].values
     y = get_langauge_y(df_ta)
@@ -54,7 +59,7 @@ def prep_data(train_csv):
     # xval
     y_m = get_meaning_y(df_ta)
     objs_lst = []
-    cv = StratifiedKFold(n_splits=5, random_state=2018)
+    cv = StratifiedKFold(n_splits=5, random_state=2018, shuffle=True)
     for train_index, test_index in cv.split(X_ta, y):
         X_ta_, y_l_ta = X_ta[train_index], y[train_index]
         X_ts_, y_l_ts = X_ta[test_index], y[test_index]
@@ -121,7 +126,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
-    parser.add_argument('--train', type=str, help='train csv', required=True)
+    parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+')
     args = parser.parse_args()
 
     model_type = args.model_type
