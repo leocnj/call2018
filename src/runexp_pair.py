@@ -44,7 +44,9 @@ def prep_data(train_csv, test_csv):
     X = df_ta.iloc[:, 3:].values
     y = df_ta['language'].values
 
-    selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=5, step=1, verbose=0, n_jobs=-1)
+    # using a fixed cv to make sure REFCV behaves deterministic
+    shuffle = StratifiedKFold(n_splits=5, random_state=0)
+    selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=shuffle, step=1, verbose=0, n_jobs=-1)
     selector.fit(X, y)
 
     feat_names = df_ta.columns[3:]
@@ -95,12 +97,13 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
         elif model_type == 'Ensemble':
             # model = BlendEnsemble(random_state=SEED)
             model = SuperLearner(random_state=SEED) # stacking
-            model.add([RandomForestClassifier(random_state=SEED),
+            model.add([LogisticRegression(random_state=SEED),
+                       RandomForestClassifier(random_state=SEED),
                        SVC(probability=True, random_state=SEED),
                        XGBClassifier()], proba=True)
             model.add_meta(LogisticRegression(random_state=SEED))
         elif model_type == 'TPOT':
-            model = TPOTClassifier(generations=5, population_size=20, cv=shuffle,
+            model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
                                    random_state=SEED, verbosity=2, n_jobs=-1)
             model.fit(lang_train_X, lang_train_y)
             model = model.fitted_pipeline_  # only keep sklearn pipeline.
