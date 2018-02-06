@@ -10,10 +10,11 @@ from sklearn.feature_selection import RFECV
 from sklearn.preprocessing.data import StandardScaler
 
 from mlens.ensemble import BlendEnsemble, SuperLearner
+from tpot import TPOTClassifier
 from utils import *
 import argparse
 import pandas as pd
-
+import pickle
 """
 
 """
@@ -69,7 +70,7 @@ def prep_data(train_csv, test_csv):
     return [X_ta, y_l_ta, X_ts, y_l_ts, y_m_ta, y_m_ts]
 
 
-def one_expm(objs, model_type, shuffle, shuffle_inEval):
+def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
     lang_train_X = objs[0]
     lang_train_y = objs[1]
     lang_test_X = objs[2]
@@ -80,37 +81,50 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval):
     test_y = np.column_stack((meaning_test_y, lang_test_y))
 
     print('model type: {}'.format(model_type))
-    if model_type == 'RF':
-        model = RandomForestClassifier(random_state=SEED)
-    elif model_type == 'SVC':
-        model = SVC(probability=True, random_state=SEED)
-    elif model_type == 'XGB':
-        model = XGBClassifier()
-    elif model_type == 'kNN':
-        model = KNeighborsClassifier()
-    elif model_type == 'LR':
-        model = LogisticRegression(random_state=SEED)
-    elif model_type == 'Ensemble':
-        # model = BlendEnsemble(random_state=SEED)
-        model = SuperLearner(random_state=SEED) # stacking
-        model.add([RandomForestClassifier(random_state=SEED),
-                   SVC(probability=True, random_state=SEED),
-                   XGBClassifier()], proba=True)
-        model.add_meta(LogisticRegression(random_state=SEED))
+    if RUN_FIT:
+        if model_type == 'RF':
+            model = RandomForestClassifier(random_state=SEED)
+        elif model_type == 'SVC':
+            model = SVC(probability=True, random_state=SEED)
+        elif model_type == 'XGB':
+            model = XGBClassifier()
+        elif model_type == 'kNN':
+            model = KNeighborsClassifier()
+        elif model_type == 'LR':
+            model = LogisticRegression(random_state=SEED)
+        elif model_type == 'Ensemble':
+            # model = BlendEnsemble(random_state=SEED)
+            model = SuperLearner(random_state=SEED) # stacking
+            model.add([RandomForestClassifier(random_state=SEED),
+                       SVC(probability=True, random_state=SEED),
+                       XGBClassifier()], proba=True)
+            model.add_meta(LogisticRegression(random_state=SEED))
+        elif model_type == 'TPOT':
+            model = TPOTClassifier(generations=5, population_size=20, cv=shuffle,
+                                   random_state=SEED, verbosity=2, n_jobs=-1)
+            model.fit(lang_train_X, lang_train_y)
+            model = model.fitted_pipeline_  # only keep sklearn pipeline.
+        else:
+            print('wrong model type {}'.format(model_type))
+            # for test
+        model.fit(lang_train_X, lang_train_y)
+        # save model
+        with open(model_file, 'wb') as pf:
+                pickle.dump(model, pf)
     else:
-        print('wrong model type {}'.format(model_type))
+        print('load saved model {}'.format(model_file))
+        with open(model_file, 'rb') as pf:
+            model = pickle.load(pf)
+
     cv_score = cross_val_score(model,
                                lang_train_X, lang_train_y,
                                cv=shuffle,
                                scoring='accuracy')
-    # for test
-    model.fit(lang_train_X, lang_train_y)
-
     acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
     print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
     if model_type == 'Ensemble':
-         # mlens has a issue when predict_proba(), now can only use its predict()
+         # mlens has an issue when predict_proba(), now can only use its predict()
          D_test, ICR_test, CR_test = get_D_on_class(model.predict(lang_test_X), test_y, print=False,
                                                    CR_adjust=False)
          print('Test D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(D_test, ICR_test, CR_test))
@@ -129,6 +143,12 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval):
                                                                                                                 D_test,
                                                                                                                 ICR_test,
                                                                                                                 CR_test))
+import os
+def model_fname(train_csv, model_type):
+    csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
+    model_file = '../ml_exp/model/' + '-'.join(csv_ids) + '-' + model_type + '.pkl'
+    print(model_file)
+    return model_file
 
 if __name__ == '__main__':
 
@@ -143,15 +163,19 @@ if __name__ == '__main__':
                         required=True)
     parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
     parser.add_argument('--test', type=str, help='test csv', required=True)
+    parser.add_argument('--fit', help='fit a model', action='store_true')
     args = parser.parse_args()
 
     model_type = args.model_type
     train_csv = args.train
     test_csv = args.test
+    RUN_FIT = args.fit
+
     objs = prep_data(train_csv, test_csv)
+    model_file = model_fname(train_csv, model_type)
 
     # to use same CV data splitting
     shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
     shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
 
-    one_expm(objs, model_type, shuffle, shuffle_inEval)
+    one_expm(objs, model_type, shuffle, shuffle_inEval, model_file)
