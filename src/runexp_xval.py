@@ -29,17 +29,23 @@ def get_meaning_y(df):
     return df['meaning'].values
 
 
-def prep_data(train_csv):
+def prep_data(train_csv, ONLY_A=False):
 
     dfs = [] # support multi files
+    csv_idx = 0
+    abc_vec  = []
     for csv_ in train_csv:
-        dfs.append(pd.read_csv(csv_))
+        df_ = pd.read_csv(csv_)
+        abc_vec += [csv_idx for x in range(len(df_.index))]
+        csv_idx += 1
+        dfs.append(df_)
     df_ta = pd.concat(dfs, join='inner')
 
     X = df_ta.iloc[:, 3:].values
     y = get_langauge_y(df_ta)
 
-    selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=5, step=1, verbose=0, n_jobs=-1)
+    cv = StratifiedKFold(n_splits=5, random_state=2018)
+    selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=cv, step=1, verbose=0, n_jobs=-1)
     selector.fit(X, y)
 
     feat_names = df_ta.columns[3:]
@@ -57,9 +63,15 @@ def prep_data(train_csv):
 
     # xval
     y_m = get_meaning_y(df_ta)
+    # abc_vec array can be used to restrict data choice to 2018 A set.
+    abc_vec = np.asarray(abc_vec)
     objs_lst = []
-    cv = StratifiedKFold(n_splits=5, random_state=2018, shuffle=True)
+    # cv = StratifiedKFold(n_splits=5, random_state=2018)
     for train_index, test_index in cv.split(X_ta, y):
+        #
+        if ONLY_A:
+            train_index = np.extract(abc_vec[train_index] == 0, train_index)
+            print('only A size {}'.format(len(train_index)))
         X_ta_, y_l_ta = X_ta[train_index], y[train_index]
         X_ts_, y_l_ts = X_ta[test_index], y[test_index]
         y_m_ta, y_m_ts = y_m[train_index], y_m[test_index]
@@ -92,8 +104,10 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval):
         print('wrong model type {}'.format(model_type))
     cv_score = cross_val_score(model,
                                lang_train_X, lang_train_y,
-                               cv=shuffle,
-                               scoring='accuracy', n_jobs=-1)
+                               cv=shuffle_inEval,
+                               scoring='accuracy')
+    # when w/o onlyA, cv_score freezes after first fold. had to disable njobs=-1
+
     # for test
     model.fit(lang_train_X, lang_train_y)
     acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
@@ -126,12 +140,13 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
     parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+')
+    parser.add_argument('--onlyA', help='only using A to train', action='store_true')
     args = parser.parse_args()
 
     model_type = args.model_type
     train_csv = args.train
 
-    objs_lst = prep_data(train_csv)
+    objs_lst = prep_data(train_csv, ONLY_A=args.onlyA)
 
     # to use same CV data splitting
     shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
