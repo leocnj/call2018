@@ -6,7 +6,7 @@ from xgboost.sklearn import XGBClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import cross_val_score
-from sklearn.feature_selection import RFECV
+from sklearn.feature_selection import RFECV, RFE
 from sklearn.preprocessing.data import StandardScaler
 
 from mlens.ensemble import BlendEnsemble, SuperLearner
@@ -31,7 +31,7 @@ def get_meaning_y(df):
     return df['meaning'].values
 
 
-def prep_data(train_csv, test_csv):
+def prep_data(train_csv, test_csv, USE_RFECV=True, n_feat=0):
     # df_ta = pd.read_csv(train_csv)
     dfs = [] # support multi files
     for csv_ in train_csv:
@@ -44,16 +44,22 @@ def prep_data(train_csv, test_csv):
     X = df_ta.iloc[:, 3:].values
     y = df_ta['language'].values
 
-    # using a fixed cv to make sure REFCV behaves deterministic
-    shuffle = StratifiedKFold(n_splits=5, random_state=0)
-    selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=shuffle, step=1, verbose=0, n_jobs=-1)
+    if USE_RFECV:
+        # using a fixed cv to make sure REFCV behaves deterministic
+        shuffle = StratifiedKFold(n_splits=5, random_state=0)
+        selector = RFECV(estimator=RandomForestClassifier(random_state=2018), cv=shuffle, step=1, verbose=0, n_jobs=-1)
+    else:
+        selector = RFE(estimator=RandomForestClassifier(random_state=2018), n_features_to_select=n_feat)
     selector.fit(X, y)
 
     feat_names = df_ta.columns[3:]
     col_selected = list(feat_names[selector.get_support()])
 
     print(col_selected)
-    print('RFECV found {} features'.format(len(col_selected)))
+    if USE_RFECV:
+        print('RFECV found {} features'.format(len(col_selected)))
+    else:
+        print('RFE found {} features'.format(len(col_selected)))
 
     X_ta = get_langauge_X(df_ta, col_selected)
     X_ts = get_langauge_X(df_ts, col_selected)
@@ -121,7 +127,7 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
 
     cv_score = cross_val_score(model,
                                lang_train_X, lang_train_y,
-                               cv=shuffle,
+                               cv=shuffle_inEval,
                                scoring='accuracy')
     acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
     print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
@@ -167,14 +173,21 @@ if __name__ == '__main__':
     parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
     parser.add_argument('--test', type=str, help='test csv', required=True)
     parser.add_argument('--fit', help='fit a model', action='store_true')
+    parser.add_argument('--nfeat', type=int, help='RFE n_feat', default=0)
     args = parser.parse_args()
 
     model_type = args.model_type
     train_csv = args.train
     test_csv = args.test
     RUN_FIT = args.fit
+    n_feat = args.nfeat
 
-    objs = prep_data(train_csv, test_csv)
+    if n_feat:
+        USE_REFCV = False
+    else:
+        USE_REFCV = True
+
+    objs = prep_data(train_csv, test_csv, USE_RFECV=USE_REFCV, n_feat=n_feat)
     model_file = model_fname(train_csv, model_type)
 
     # to use same CV data splitting
