@@ -70,6 +70,8 @@ def prep_data(train_csv, ONLY_A=False):
     for train_index, test_index in cv.split(X_ta, y):
         #
         if ONLY_A:
+            # if only A == 0
+            # if both A and B < 2 (excluding C==2)
             train_index = np.extract(abc_vec[train_index] == 0, train_index)
             print('only A size {}'.format(len(train_index)))
         X_ta_, y_l_ta = X_ta[train_index], y[train_index]
