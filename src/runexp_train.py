@@ -14,6 +14,7 @@ from utils import *
 import argparse
 import pandas as pd
 import pickle
+
 """
 runexp_train.py
 
@@ -23,21 +24,25 @@ runexp_train.py
 """
 SEED = 1
 
+
 def get_langauge_X(df, cols):
     X = df.loc[:, cols].values
     return X
 
+
 def get_langauge_y(df):
     return df['language'].values
+
 
 def get_meaning_y(df):
     return df['meaning'].values
 
+
 def prep_train(train_csv, USE_RFECV=True, n_feat=0):
-    dfs = [] # support multi files
+    dfs = []  # support multi files
     for csv_ in train_csv:
         dfs.append(pd.read_csv(csv_))
-    df_ta = pd.concat(dfs, join='inner') #
+    df_ta = pd.concat(dfs, join='inner')  #
     print('df_ta shape {}'.format(df_ta.shape))
 
     X = df_ta.iloc[:, 3:].values
@@ -92,7 +97,7 @@ def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
                 ('lr', LogisticRegression(random_state=SEED)),
                 ('rf', RandomForestClassifier(random_state=SEED)),
                 ('svc', SVC(probability=True, random_state=SEED)),
-                ('xgb', XGBClassifier())], voting = 'soft')
+                ('xgb', XGBClassifier())], voting='soft')
         elif model_type == 'TPOT':
             model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
                                    random_state=SEED, verbosity=2, n_jobs=-1)
@@ -104,7 +109,7 @@ def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
         model.fit(lang_train_X, lang_train_y)
         # save model
         with open(model_file, 'wb') as pf:
-                pickle.dump(model, pf)
+            pickle.dump(model, pf)
     else:
         print('load saved model {}'.format(model_file))
         with open(model_file, 'rb') as pf:
@@ -120,21 +125,26 @@ def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
     for thres in thres_lst:
         print('---------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
-        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,Ds.mean(), ICRs.mean(), CRs.mean()))
+        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres, Ds.mean(), ICRs.mean(), CRs.mean()))
 
     return model
 
+
 import os
+
+
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
     model_file = '../ml_exp/model/' + '-'.join(csv_ids) + '-' + model_type + '.pkl'
     print(model_file)
     return model_file
 
+
 if __name__ == '__main__':
 
     # skip lots of sklearn depreciation warnings
     import warnings
+
     warnings.filterwarnings("ignore")
     # logger = get_logger(__name__, simple=True)
 
@@ -142,7 +152,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
-    parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
+    parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+')  # support multi train files.
     parser.add_argument('--test', type=str, help='test csv')
     parser.add_argument('--fit', help='fit a model', action='store_true')
     parser.add_argument('--nfeat', type=int, help='RFE n_feat', default=0)
