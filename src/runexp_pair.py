@@ -1,4 +1,4 @@
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
@@ -104,13 +104,11 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
         elif model_type == 'LR':
             model = LogisticRegression(random_state=SEED)
         elif model_type == 'Ensemble':
-            # model = BlendEnsemble(random_state=SEED)
-            model = SuperLearner(random_state=SEED) # stacking
-            model.add([LogisticRegression(random_state=SEED),
-                       RandomForestClassifier(random_state=SEED),
-                       SVC(probability=True, random_state=SEED),
-                       XGBClassifier()], proba=True)
-            model.add_meta(LogisticRegression(random_state=SEED))
+            model = VotingClassifier(estimators=[
+                ('lr', LogisticRegression(random_state=SEED)),
+                ('rf', RandomForestClassifier(random_state=SEED)),
+                ('svc', SVC(probability=True, random_state=SEED)),
+                ('xgb', XGBClassifier())], voting = 'soft')
         elif model_type == 'TPOT':
             model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
                                    random_state=SEED, verbosity=2, n_jobs=-1)
@@ -135,26 +133,20 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
     acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
     print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
 
-    if model_type == 'Ensemble':
-         # mlens has an issue when predict_proba(), now can only use its predict()
-         D_test, ICR_test, CR_test = get_D_on_class(model.predict(lang_test_X), test_y, print=False,
+    thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
+    for thres in thres_lst:
+        print('---------------------------------------------------------------------------------------------')
+        Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
+        # D on the REAL test set.
+        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
                                                    CR_adjust=False)
-         print('Test D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(D_test, ICR_test, CR_test))
-    else:
-        thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
-        for thres in thres_lst:
-            print('---------------------------------------------------------------------------------------------')
-            Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
-            # D on the REAL test set.
-            D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
-                                                       CR_adjust=False)
-            print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
-                                                                                                                Ds.mean(),
-                                                                                                                ICRs.mean(),
-                                                                                                                CRs.mean(),
-                                                                                                                D_test,
-                                                                                                                ICR_test,
-                                                                                                                CR_test))
+        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
+                                                                                                            Ds.mean(),
+                                                                                                            ICRs.mean(),
+                                                                                                            CRs.mean(),
+                                                                                                            D_test,
+                                                                                                            ICR_test,
+                                                                                                            CR_test))
 import os
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
