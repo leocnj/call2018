@@ -1,7 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score
 from xgboost.sklearn import XGBClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
@@ -69,21 +68,12 @@ def prep_test(test_csv, pipe):
 
     X = df_ts.iloc[:, 3:].values
     X_ts = pipe.transform(X)
-    y_l_ts = get_langauge_y(df_ts)
-    y_m_ts = get_meaning_y(df_ts)
-
-    return (X_ts, y_l_ts, y_m_ts)
+    return X_ts
 
 
-def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
-    lang_train_X = objs[0]
-    lang_train_y = objs[1]
-    lang_test_X = objs[2]
-    lang_test_y = objs[3]
-    meaning_train_y = objs[4]
-    meaning_test_y = objs[5]
+def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
+    lang_train_X, lang_train_y, meaning_train_y = objs
     train_y = np.column_stack((meaning_train_y, lang_train_y))
-    test_y = np.column_stack((meaning_test_y, lang_test_y))
 
     print('model type: {}'.format(model_type))
     if RUN_FIT:
@@ -124,23 +114,16 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
                                lang_train_X, lang_train_y,
                                cv=shuffle_inEval,
                                scoring='accuracy')
-    acc_test = accuracy_score(lang_test_y, model.predict(lang_test_X))
-    print('Acc mean on train: {:2.4f}\tAcc on test: {:2.4f}'.format(cv_score.mean(), acc_test))
+    print('Acc mean on train: {:2.4f}'.format(cv_score.mean()))
 
     thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
     for thres in thres_lst:
-        print('---------------------------------------------------------------------------------------------')
+        print('---------------------------------------------------')
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
-        # D on the REAL test set.
-        D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
-                                                   CR_adjust=False)
-        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
-                                                                                                            Ds.mean(),
-                                                                                                            ICRs.mean(),
-                                                                                                            CRs.mean(),
-                                                                                                            D_test,
-                                                                                                            ICR_test,
-                                                                                                            CR_test))
+        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,Ds.mean(), ICRs.mean(), CRs.mean()))
+
+    return model
+
 import os
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
@@ -160,7 +143,7 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
     parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
-    parser.add_argument('--test', type=str, help='test csv', required=True)
+    parser.add_argument('--test', type=str, help='test csv')
     parser.add_argument('--fit', help='fit a model', action='store_true')
     parser.add_argument('--nfeat', type=int, help='RFE n_feat', default=0)
     args = parser.parse_args()
@@ -177,12 +160,15 @@ if __name__ == '__main__':
         USE_REFCV = True
 
     X_ta, y_l_ta, y_m_ta, pipe = prep_train(train_csv, USE_RFECV=USE_REFCV, n_feat=n_feat)
-    X_ts, y_l_ts, y_m_ts = prep_test(test_csv, pipe)
-    objs = [X_ta, y_l_ta, X_ts, y_l_ts, y_m_ta, y_m_ts]
-    model_file = model_fname(train_csv, model_type)
 
+    model_file = model_fname(train_csv, model_type)
     # to use same CV data splitting
     shuffle = StratifiedKFold(n_splits=10, random_state=SEED)
     shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
 
-    one_expm(objs, model_type, shuffle, shuffle_inEval, model_file)
+    objs = (X_ta, y_l_ta, y_m_ta)
+    ml_model = train_model(objs, model_type, shuffle, shuffle_inEval, model_file)
+    if test_csv:
+        X_ts = prep_test(test_csv, pipe)
+        probs = ml_model.predict_proba(X_ts)
+        print(probs)
