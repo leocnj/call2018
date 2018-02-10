@@ -76,44 +76,35 @@ def prep_test(test_csv, pipe):
     return X_ts
 
 
-def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
+def train_model(objs, model_type, shuffle, shuffle_inEval):
     lang_train_X, lang_train_y, meaning_train_y = objs
     train_y = np.column_stack((meaning_train_y, lang_train_y))
 
     print('model type: {}'.format(model_type))
-    if RUN_FIT:
-        if model_type == 'RF':
-            model = RandomForestClassifier(random_state=SEED)
-        elif model_type == 'SVC':
-            model = SVC(probability=True, random_state=SEED)
-        elif model_type == 'XGB':
-            model = XGBClassifier()
-        elif model_type == 'kNN':
-            model = KNeighborsClassifier()
-        elif model_type == 'LR':
-            model = LogisticRegression(random_state=SEED)
-        elif model_type == 'Ensemble':
-            model = VotingClassifier(estimators=[
-                ('lr', LogisticRegression(random_state=SEED)),
-                ('rf', RandomForestClassifier(random_state=SEED)),
-                ('svc', SVC(probability=True, random_state=SEED)),
-                ('xgb', XGBClassifier())], voting='soft')
-        elif model_type == 'TPOT':
-            model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
-                                   random_state=SEED, verbosity=2, n_jobs=-1)
-            model.fit(lang_train_X, lang_train_y)
-            model = model.fitted_pipeline_  # only keep sklearn pipeline.
-        else:
-            print('wrong model type {}'.format(model_type))
-            # for test
+    if model_type == 'RF':
+        model = RandomForestClassifier(random_state=SEED)
+    elif model_type == 'SVC':
+        model = SVC(probability=True, random_state=SEED)
+    elif model_type == 'XGB':
+        model = XGBClassifier()
+    elif model_type == 'kNN':
+        model = KNeighborsClassifier()
+    elif model_type == 'LR':
+        model = LogisticRegression(random_state=SEED)
+    elif model_type == 'Ensemble':
+        model = VotingClassifier(estimators=[
+            ('lr', LogisticRegression(random_state=SEED)),
+            ('rf', RandomForestClassifier(random_state=SEED)),
+            ('svc', SVC(probability=True, random_state=SEED)),
+            ('xgb', XGBClassifier())], voting='soft')
+    elif model_type == 'TPOT':
+        model = TPOTClassifier(generations=5, population_size=25, cv=shuffle,
+                               random_state=SEED, verbosity=2, n_jobs=-1)
         model.fit(lang_train_X, lang_train_y)
-        # save model
-        with open(model_file, 'wb') as pf:
-            pickle.dump(model, pf)
+        model = model.fitted_pipeline_  # only keep sklearn pipeline.
     else:
-        print('load saved model {}'.format(model_file))
-        with open(model_file, 'rb') as pf:
-            model = pickle.load(pf)
+        print('wrong model type {}'.format(model_type))
+        # for test
 
     cv_score = cross_val_score(model,
                                lang_train_X, lang_train_y,
@@ -127,11 +118,11 @@ def train_model(objs, model_type, shuffle, shuffle_inEval, model_file):
         Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
         print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres, Ds.mean(), ICRs.mean(), CRs.mean()))
 
+    model.fit(lang_train_X, lang_train_y)
     return model
 
 
 import os
-
 
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
@@ -177,7 +168,15 @@ if __name__ == '__main__':
     shuffle_inEval = StratifiedKFold(n_splits=10, random_state=SEED + 1024)
 
     objs = (X_ta, y_l_ta, y_m_ta)
-    ml_model = train_model(objs, model_type, shuffle, shuffle_inEval, model_file)
+    if RUN_FIT:
+        ml_model = train_model(objs, model_type, shuffle, shuffle_inEval)
+        with open(model_file, 'wb') as pf:
+            pickle.dump((pipe, ml_model), pf)
+    else:
+        print('load saved model {}'.format(model_file))
+        with open(model_file, 'rb') as pf:
+            _, ml_model = pickle.load(pf)
+
     if test_csv:
         X_ts = prep_test(test_csv, pipe)
         probs = ml_model.predict_proba(X_ts)
