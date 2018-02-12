@@ -54,6 +54,10 @@ def load_huy(csv_file):
     df.rename(columns={'ID': 'Id'}, inplace=True)
     df.drop(columns=['CLASS'], inplace=True)
     print('Huy features: {}'.format(df.shape))
+    # Id plus 43 columns
+    col_huy = ["Id", "ppl-ref", "ppl-ref_pos", "ppl-ref_prod", "ppl-ref_dep", "ppl-prompt", "ppl-prompt_pos", "ppl-correct", "ppl-correct_pos", "ppl-correct_prod", "ppl-correct_dep", "ppl-ge", "ppl-ge_pos", "ppl-incorrect", "ppl-incorrect_pos", "ppl-incorrect_prod", "ppl-incorrect_dep", "maxsim_15_skip", "maxsim_30_skip", "maxsim_50_skip", "maxsim_15_cbw", "maxsim_30_cbw", "maxsim_50_cbw", "lda_sim-min", "ngram_match", "ngram_match-lem", "ngram_unseen-1", "ngram_unseen-2", "ngram_unseen-3", "error_count", "parse_score-ratio", "length_ratio", "length_01", "length_unknown", "length_unknown-ratio", "length_sounds", "length_sounds-ratio", "prompt_missing", "prompt_missing-pct", "prompt_DT", "prompt_IN", "prompt_MD", "prompt_NN", "prompt_VB"]
+    df = df[col_huy]
+    print('reduced to {}'.format(df.shape))
     return df
 
 
