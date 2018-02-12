@@ -45,7 +45,7 @@ def get_18test():
     # 2018 test
     spreadsheet_in = '../data/texttask_trainData/scst2_testDataText.csv'
     df_18_test = pd.read_csv(spreadsheet_in, sep='\t', encoding="utf-8", na_filter=False)
-    print('shape: {}'.format(df_18_test.shape))
+    print('2018 test\nshape: {}'.format(df_18_test.shape))
     return df_18_test
 
 
@@ -88,6 +88,7 @@ if __name__ == '__main__':
     y18_train_A, y18_train_B, y18_train_C = get_18df()
     y18_test = get_18test()
 
+    # ------------------------- TEXT task -------------------------------------------------
     # 2017 train text
     gen_ml_csv(y17_train,
                '../data/processed/df17_train_grmerror.csv',
@@ -99,16 +100,6 @@ if __name__ == '__main__':
                '../data/processed/Huy/v6_17ABC/textProcessing_testKaldi_annotated_features.csv',
                '../ml_exp/inputs/y17_test_text.csv')  # 2017 train asr
 
-    # 2017 train asr
-    gen_ml_csv(y17_train,
-               '../data/processed/df17_train_asr_grmerror.csv',
-               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_trainingKaldi_features.csv',
-               '../ml_exp/inputs/y17_train_asr.csv')
-    # 2017 test asr
-    gen_ml_csv(y17_test,
-               '../data/processed/df17_test_asr_grmerror.csv',
-               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_testKaldi_annotated_features.csv',
-               '../ml_exp/inputs/y17_test_asr.csv')
 
     # text
     # 2018 train A
@@ -132,7 +123,21 @@ if __name__ == '__main__':
                '../data/processed/Huy/v6_17ABC/scst2_testDataText_features.csv',
                '../ml_exp/inputs/y18_test_text.csv')
 
-    # asr using 1best
+
+    # ------------------------- ASR task -------------------------------------------------
+    # ASR using 1-best
+    #
+    # 2017 train asr
+    gen_ml_csv(y17_train,
+               '../data/processed/df17_train_asr_grmerror.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_trainingKaldi_features.csv',
+               '../ml_exp/inputs/y17_train_asr.csv')
+    # 2017 test asr
+    gen_ml_csv(y17_test,
+               '../data/processed/df17_test_asr_grmerror.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_testKaldi_annotated_features.csv',
+               '../ml_exp/inputs/y17_test_asr.csv')
+
     # 2018 train A
     gen_ml_csv(y18_train_A,
                '../data/processed/df18_train_asr_grmerror.csv',
@@ -155,3 +160,5 @@ if __name__ == '__main__':
                '../data/processed/Huy/v7_ASR/data/18test-asr-1best-new/scst2_testDataText_features.csv',
                '../ml_exp/inputs/y18_test_asr.csv')
 
+
+    # ASR using 2-best (when testing)
