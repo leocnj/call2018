@@ -31,6 +31,8 @@ grm_error_file = '../data/processed/grammar/y17test_y18train.csv'  # On 2017 tes
 df_3 = load_df(grm_error_file)
 grm_error_file = '../data/processed/grammar/y17train.csv'  # On 2017 test adn 2018 train ASR outputs.
 df_4 = load_df(grm_error_file)
+grm_error_file = '../data/processed/grammar/2018test_text_asr.csv'  # On 2018 test text and LLS ASR.
+df_5 = load_df(grm_error_file)
 
 
 set_dict = {'scst2_training_data_A_text': 'df18_A_train',
@@ -69,6 +71,16 @@ set_dict = {'2017_train_asr': 'df17_train_asr'
             }
 # based on data, dump error count features to different csv
 for name, group in df_4.groupby('Set'):
+    if name in set_dict.keys():
+        csv_out = '../data/processed/' + set_dict[name] + '_grmerror.csv'
+        print(csv_out)
+        # group.drop(['set_Id', 'Set'], axis=1).to_csv(csv_out, encoding='utf-8', index=False)
+
+set_dict = {'2018_testset-lma-0.5-20.': 'df18_test_asr',
+            'scst2_testDataText': 'df18_test_text'
+            }
+# based on data, dump error count features to different csv
+for name, group in df_5.groupby('Set'):
     if name in set_dict.keys():
         csv_out = '../data/processed/' + set_dict[name] + '_grmerror.csv'
         print(csv_out)

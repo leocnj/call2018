@@ -41,6 +41,13 @@ def get_18df():
         print('shape: {}'.format(df_.shape))
     return (df_A, df_B, df_C)
 
+def get_18test():
+    # 2018 test
+    spreadsheet_in = '../data/texttask_trainData/scst2_testDataText.csv'
+    df_18_test = pd.read_csv(spreadsheet_in, sep='\t', encoding="utf-8", na_filter=False)
+    print('shape: {}'.format(df_18_test.shape))
+    return df_18_test
+
 
 def load_huy(csv_file):
     df = pd.read_csv(csv_file, sep='\t')
@@ -63,7 +70,12 @@ def gen_ml_csv(df_main, grmerr_csv, huy_csv, ml_csv):
     df_grmerr = pd.read_csv(grmerr_csv)
     df_huy = load_huy(huy_csv)
 
-    df_ml = df_main[['Id', 'language', 'meaning']]
+    # 2018 test has no L and M columns
+    if {'language', 'meaning'}.issubset(df_main.columns):
+        df_ml = df_main[['Id', 'language', 'meaning']]
+    else:
+        df_ml = df_main[['Id']]
+
     df_ml = pd.merge(df_ml, df_grmerr, on='Id',
                      how='left')  # grmerr may miss some Ids due to ASR null outputs. use left to keep all Ids.
     df_ml = pd.merge(df_ml, df_huy, on='Id', how='left')
@@ -74,16 +86,17 @@ def gen_ml_csv(df_main, grmerr_csv, huy_csv, ml_csv):
 if __name__ == '__main__':
     y17_train, y17_test = get_17df()
     y18_train_A, y18_train_B, y18_train_C = get_18df()
+    y18_test = get_18test()
 
     # 2017 train text
     gen_ml_csv(y17_train,
                '../data/processed/df17_train_grmerror.csv',
-               '../data/processed/Huy/textProcessing_trainingKaldi_features.csv',
+               '../data/processed/Huy/v6_17ABC/textProcessing_trainingKaldi_features.csv',
                '../ml_exp/inputs/y17_train_text.csv')
     # 2017 test text
     gen_ml_csv(y17_test,
                '../data/processed/df17_test_grmerror.csv',
-               '../data/processed/Huy/textProcessing_testKaldi_annotated_features.csv',
+               '../data/processed/Huy/v6_17ABC/textProcessing_testKaldi_annotated_features.csv',
                '../ml_exp/inputs/y17_test_text.csv')  # 2017 train asr
 
     # 2017 train asr
@@ -101,18 +114,23 @@ if __name__ == '__main__':
     # 2018 train text A
     gen_ml_csv(y18_train_A,
                '../data/processed/df18_A_train_grmerror.csv',
-               '../data/processed/Huy/scst2_training_data_A_text_features.csv',
+               '../data/processed/Huy/v6_17ABC/scst2_training_data_A_text_features.csv',
                '../ml_exp/inputs/y18_train_A_text.csv')
     # 2018 train text B
     gen_ml_csv(y18_train_B,
                '../data/processed/df18_B_train_grmerror.csv',
-               '../data/processed/Huy/scst2_training_data_B_text_features.csv',
+               '../data/processed/Huy/v6_17ABC/scst2_training_data_B_text_features.csv',
                '../ml_exp/inputs/y18_train_B_text.csv')
     # 2018 train text C
     gen_ml_csv(y18_train_C,
                '../data/processed/df18_C_train_grmerror.csv',
-               '../data/processed/Huy/scst2_training_data_C_text_features.csv',
+               '../data/processed/Huy/v6_17ABC/scst2_training_data_C_text_features.csv',
                '../ml_exp/inputs/y18_train_C_text.csv')
+    # 2018 test
+    gen_ml_csv(y18_test,
+               '../data/processed/df18_test_text_grmerror.csv',
+               '../data/processed/Huy/v6_17ABC/scst2_testDataText_features.csv',
+               '../ml_exp/inputs/y18_test_text.csv')
 
     # asr
     # 2018 train text A
