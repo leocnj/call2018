@@ -102,26 +102,26 @@ if __name__ == '__main__':
     # 2017 train asr
     gen_ml_csv(y17_train,
                '../data/processed/df17_train_asr_grmerror.csv',
-               '../data/processed/Huy/ASR/textProcessing_trainingKaldi_features.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_trainingKaldi_features.csv',
                '../ml_exp/inputs/y17_train_asr.csv')
     # 2017 test asr
     gen_ml_csv(y17_test,
                '../data/processed/df17_test_asr_grmerror.csv',
-               '../data/processed/Huy/ASR/textProcessing_testKaldi_annotated_features.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/textProcessing_testKaldi_annotated_features.csv',
                '../ml_exp/inputs/y17_test_asr.csv')
 
     # text
-    # 2018 train text A
+    # 2018 train A
     gen_ml_csv(y18_train_A,
                '../data/processed/df18_A_train_grmerror.csv',
                '../data/processed/Huy/v6_17ABC/scst2_training_data_A_text_features.csv',
                '../ml_exp/inputs/y18_train_A_text.csv')
-    # 2018 train text B
+    # 2018 train B
     gen_ml_csv(y18_train_B,
                '../data/processed/df18_B_train_grmerror.csv',
                '../data/processed/Huy/v6_17ABC/scst2_training_data_B_text_features.csv',
                '../ml_exp/inputs/y18_train_B_text.csv')
-    # 2018 train text C
+    # 2018 train C
     gen_ml_csv(y18_train_C,
                '../data/processed/df18_C_train_grmerror.csv',
                '../data/processed/Huy/v6_17ABC/scst2_training_data_C_text_features.csv',
@@ -132,19 +132,26 @@ if __name__ == '__main__':
                '../data/processed/Huy/v6_17ABC/scst2_testDataText_features.csv',
                '../ml_exp/inputs/y18_test_text.csv')
 
-    # asr
-    # 2018 train text A
+    # asr using 1best
+    # 2018 train A
     gen_ml_csv(y18_train_A,
                '../data/processed/df18_train_asr_grmerror.csv',
-               '../data/processed/Huy/ASR/scst2_training_data_A_text_features.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/scst2_training_data_A_text_features.csv',
                '../ml_exp/inputs/y18_train_A_asr.csv')
-    # 2018 train text B
+    # 2018 train B
     gen_ml_csv(y18_train_B,
                '../data/processed/df18_train_asr_grmerror.csv',
-               '../data/processed/Huy/ASR/scst2_training_data_B_text_features.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/scst2_training_data_B_text_features.csv',
                '../ml_exp/inputs/y18_train_B_asr.csv')
-    # 2018 train text C
+    # 2018 train C
     gen_ml_csv(y18_train_C,
                '../data/processed/df18_train_asr_grmerror.csv',
-               '../data/processed/Huy/ASR/scst2_training_data_C_text_features.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-1best/scst2_training_data_C_text_features.csv',
                '../ml_exp/inputs/y18_train_C_asr.csv')
+
+    # 2018 test
+    gen_ml_csv(y18_test,
+               '../data/processed/df18_test_asr_grmerror.csv',
+               '../data/processed/Huy/v7_ASR/data/18test-asr-1best-new/scst2_testDataText_features.csv',
+               '../ml_exp/inputs/y18_test_asr.csv')
+
