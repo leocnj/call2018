@@ -214,8 +214,8 @@ def print_scores(scores):
         IncorrectRejectionRate = 'undefined'
 
     if (FR + CA) > 0:
-        # CorrectRejectionRate = FR / (FR + CA)
-        CorrectRejectionRate = FR / (FR + CA) if FR / (FR + CA) > 0.04 else 0.04  # penalize using low cRj to boost D
+        CorrectRejectionRate = FR / (FR + CA)
+        # CorrectRejectionRate = FR / (FR + CA) if FR / (FR + CA) > 0.04 else 0.04  # penalize using low cRj to boost D
     else:
         CorrectRejectionRate = 'undefined'
 
