@@ -3,10 +3,11 @@ import pandas as pd
 import pickle
 
 """
-runexp_train.py
+runexp_eval.py
 
-- only do training
-- pickle transformer and model for future use
+- load saved pipeline
+- apply the pre-processing and model on the test file
+- generate result csv file at preds dir
 
 """
 SEED = 1
@@ -17,8 +18,10 @@ def get_meaning_y(df):
 def prep_test(test_csv, pipe):
     df_ts = pd.read_csv(test_csv)
     print('df_ts shape {}'.format(df_ts.shape))
-
-    X = df_ts.iloc[:, 3:].values
+    if {'language', 'meaning'}.issubset(df_ts.columns):
+        X = df_ts.iloc[:, 3:].values
+    else:
+        X = df_ts.iloc[:, 1:].values
     X_ts = pipe.transform(X)
     return X_ts
 
@@ -44,10 +47,14 @@ if __name__ == '__main__':
     parser.add_argument('--model_file', type=str, help='model file',
                         required=True)
     parser.add_argument('--test', type=str, help='test csv', required=True)
+    parser.add_argument('--year', type=str, help='challenge year', required=True)
+    parser.add_argument('--thres', type=float, help='proba_ threshold', required=True)
     args = parser.parse_args()
 
     model_file = args.model_file
     test_csv = args.test
+    test_year = args.year
+    test_thres = args.thres
 
     with open(model_file, 'rb') as pf:
          pipe, ml_model = pickle.load(pf)
@@ -57,4 +64,16 @@ if __name__ == '__main__':
     probs = ml_model.predict_proba(X_ts)
     print(probs)
 
-    pd.DataFrame(probs[:,1], columns=['prob_1']).to_csv(pred_file, index=False)
+    # based on year_thres, to make judgement
+    make_judge = lambda x: 'accept' if x >= test_thres else 'reject'
+    judgements = [make_judge(prob) for prob in probs[:, 1]]
+
+    # load test meta
+    if test_year == '2017':
+        meta_csv = '../data/scst1/scst1_testData_annotated.csv'
+    else:
+        meta_csv = '../data/texttask_trainData/scst2_testDataText.csv'
+        # Id	Prompt	Wavfile	RecResult	Judgement
+    result_df = pd.read_csv(meta_csv, sep='\t', encoding="utf-8", na_filter=False)
+    result_df['Judgement'] = judgements
+    result_df.to_csv(pred_file, index=False)

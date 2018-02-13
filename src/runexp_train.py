@@ -70,8 +70,10 @@ def prep_train(train_csv, USE_RFECV=True, n_feat=0):
 def prep_test(test_csv, pipe):
     df_ts = pd.read_csv(test_csv)
     print('df_ts shape {}'.format(df_ts.shape))
-
-    X = df_ts.iloc[:, 3:].values
+    if {'language', 'meaning'}.issubset(df_ts.columns):
+        X = df_ts.iloc[:, 3:].values
+    else:
+        X = df_ts.iloc[:, 1:].values
     X_ts = pipe.transform(X)
     return X_ts
 
@@ -106,17 +108,17 @@ def train_model(objs, model_type, shuffle, shuffle_inEval):
         print('wrong model type {}'.format(model_type))
         # for test
 
-    cv_score = cross_val_score(model,
-                               lang_train_X, lang_train_y,
-                               cv=shuffle_inEval,
-                               scoring='accuracy')
-    print('Acc mean on train: {:2.4f}'.format(cv_score.mean()))
-
-    thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
-    for thres in thres_lst:
-        print('---------------------------------------------------')
-        Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
-        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres, Ds.mean(), ICRs.mean(), CRs.mean()))
+    # cv_score = cross_val_score(model,
+    #                            lang_train_X, lang_train_y,
+    #                            cv=shuffle_inEval,
+    #                            scoring='accuracy')
+    # print('Acc mean on train: {:2.4f}'.format(cv_score.mean()))
+    #
+    # thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
+    # for thres in thres_lst:
+    #     print('---------------------------------------------------')
+    #     Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
+    #     print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres, Ds.mean(), ICRs.mean(), CRs.mean()))
 
     model.fit(lang_train_X, lang_train_y)
     return model
@@ -126,7 +128,7 @@ import os
 
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]
-    model_file = '../ml_exp/model/' + '-'.join(csv_ids) + '-' + model_type + '.pkl'
+    model_file = '../ml_exp/pipe/' + '-'.join(csv_ids) + '-' + model_type + '.pkl'
     print(model_file)
     return model_file
 
