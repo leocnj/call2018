@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# model: LR, SVC, and Ensemble
 DATA=../ml_exp/inputs
+
 MODEL=Ensemble
 THRES=0.35
 echo $MODEL $THRES

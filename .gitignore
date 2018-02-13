@@ -100,3 +100,5 @@ ENV/
 # mypy
 .mypy_cache/
 data/asr/raw/ed2_train_cv.ctm
+ml_exp/pipe/*.pkl
+ml_exp/preds/*.csv
