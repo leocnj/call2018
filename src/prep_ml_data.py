@@ -166,3 +166,15 @@ if __name__ == '__main__':
 
 
     # ASR using 2-best (when testing)
+    # 2017 test asr
+    gen_ml_csv(y17_test,
+               '../data/processed/df17_test_asr_grmerror.csv',
+               '../data/processed/Huy/v7_ASR/data/17ABC-asr-2best/textProcessing_testKaldi_annotated_features.csv',
+               '../ml_exp/inputs/y17_test_2best.csv')
+
+    # 2018 test
+    gen_ml_csv(y18_test,
+               '../data/processed/df18_test_asr_grmerror.csv',
+               '../data/processed/Huy/v7_ASR/data/18test-asr-2best-new/scst2_testDataText_features.csv',
+               '../ml_exp/inputs/y18_test_2best.csv')
+
