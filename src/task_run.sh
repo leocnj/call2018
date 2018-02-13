@@ -2,7 +2,7 @@
 
 # model: LR, SVC, and Ensemble
 DATA=../ml_exp/inputs
-TASK1=$1
+TASK=$1
 
 echo $TASK
 
