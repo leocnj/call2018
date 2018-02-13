@@ -31,13 +31,15 @@ def get_meaning_y(df):
 
 
 def prep_data(train_csv, test_csv, USE_RFECV=True, n_feat=0):
-    # df_ta = pd.read_csv(train_csv)
     dfs = [] # support multi files
     for csv_ in train_csv:
         dfs.append(pd.read_csv(csv_))
     df_ta = pd.concat(dfs, join='inner') #
     print('df_ta shape {}'.format(df_ta.shape))
-    df_ts = pd.read_csv(test_csv)
+    dfs = [] # support multi files
+    for csv_ in test_csv:
+        dfs.append(pd.read_csv(csv_))
+    df_ts = pd.concat(dfs, join='inner') #
     print('df_ts shape {}'.format(df_ts.shape))
 
     X = df_ta.iloc[:, 3:].values
@@ -60,8 +62,6 @@ def prep_data(train_csv, test_csv, USE_RFECV=True, n_feat=0):
     else:
         print('RFE found {} features'.format(len(col_selected)))
 
-    col_huy = ["ppl-ref", "ppl-ref_pos", "ppl-ref_prod", "ppl-ref_dep", "ppl-prompt", "ppl-prompt_pos", "ppl-correct", "ppl-correct_pos", "ppl-correct_prod", "ppl-correct_dep", "ppl-ge", "ppl-ge_pos", "ppl-incorrect", "ppl-incorrect_pos", "ppl-incorrect_prod", "ppl-incorrect_dep", "maxsim_15_skip", "maxsim_30_skip", "maxsim_50_skip", "maxsim_15_cbw", "maxsim_30_cbw", "maxsim_50_cbw", "lda_sim-min", "ngram_match", "ngram_match-lem", "ngram_unseen-1", "ngram_unseen-2", "ngram_unseen-3", "error_count", "parse_score-ratio", "length_ratio", "length_01", "length_unknown", "length_unknown-ratio", "length_sounds", "length_sounds-ratio", "prompt_missing", "prompt_missing-pct", "prompt_DT", "prompt_IN", "prompt_MD", "prompt_NN", "prompt_VB"]
-    # col_selected = col_huy
 
     X_ta = get_langauge_X(df_ta, col_selected)
     X_ts = get_langauge_X(df_ts, col_selected)
@@ -165,7 +165,7 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--model_type', type=str, help='model type',
                         required=True)
     parser.add_argument('--train', type=str, help='train csv', required=True, nargs='+') # support multi train files.
-    parser.add_argument('--test', type=str, help='test csv', required=True)
+    parser.add_argument('--test', type=str, help='test csv', required=True, nargs='+')
     parser.add_argument('--fit', help='fit a model', action='store_true')
     parser.add_argument('--nfeat', type=int, help='RFE n_feat', default=0)
     args = parser.parse_args()

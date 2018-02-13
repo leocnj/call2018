@@ -1,4 +1,4 @@
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
@@ -70,9 +70,9 @@ def prep_data(train_csv, ONLY_A=False):
     for train_index, test_index in cv.split(X_ta, y):
         #
         if ONLY_A:
-            # if only A == 0
-            # if both A and B < 2 (excluding C==2)
-            train_index = np.extract(abc_vec[train_index] == 0, train_index)
+            # 0 to 3: 2017, 2018_A, 2018_B, and 2018_C
+            # < 2 means only using 2017 and 2018_A to train at each CV fold
+            train_index = np.extract(abc_vec[train_index] < 2, train_index)
             print('only A size {}'.format(len(train_index)))
         X_ta_, y_l_ta = X_ta[train_index], y[train_index]
         X_ts_, y_l_ts = X_ta[test_index], y[test_index]
@@ -102,6 +102,12 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval):
         model = KNeighborsClassifier()
     elif model_type == 'LR':
         model = LogisticRegression(random_state=SEED)
+    elif model_type == 'Ensemble':
+        model = VotingClassifier(estimators=[
+            ('lr', LogisticRegression(random_state=SEED)),
+            ('rf', RandomForestClassifier(random_state=SEED)),
+            ('svc', SVC(probability=True, random_state=SEED)),
+            ('xgb', XGBClassifier())], voting = 'soft')
     else:
         print('wrong model type {}'.format(model_type))
     cv_score = cross_val_score(model,
