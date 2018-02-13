@@ -1,6 +1,7 @@
 import argparse
 import pandas as pd
 import pickle
+from utils import get_D_on_df
 
 """
 runexp_eval.py
@@ -62,7 +63,6 @@ if __name__ == '__main__':
     pred_file = pred_fname(model_file, test_csv)
     X_ts = prep_test(test_csv, pipe)
     probs = ml_model.predict_proba(X_ts)
-    print(probs)
 
     # based on year_thres, to make judgement
     make_judge = lambda x: 'accept' if x >= test_thres else 'reject'
@@ -77,3 +77,6 @@ if __name__ == '__main__':
     result_df = pd.read_csv(meta_csv, sep='\t', encoding="utf-8", na_filter=False)
     result_df['Judgement'] = judgements
     result_df.to_csv(pred_file, index=False)
+
+    if test_year == '2017':
+        get_D_on_df(result_df)

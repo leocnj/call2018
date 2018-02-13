@@ -32,6 +32,16 @@ def get_meaning_y(y):
 
 label_back = lambda x: 'correct' if x==1 else 'incorrect'
 
+def get_D_on_df(df):
+    scores = init_scores()
+    for _, row in df.iterrows():
+        decision = row['Judgement']
+        lang_label = row['language']
+        mean_label = row['meaning']
+        score_decision(decision, lang_label, mean_label, scores)
+    print_scores(scores)
+
+
 def get_D_on_class(lang_pred, y, print=False, CR_adjust=False):
     scores = init_scores()
     for i, lang in enumerate(lang_pred):
