@@ -71,13 +71,14 @@ if __name__ == '__main__':
     # load test meta
     if test_year == '2017':
         meta_csv = '../data/scst1/scst1_testData_annotated.csv'
-    else:
+    elif test_year == '2018_text':
         meta_csv = '../data/texttask_trainData/scst2_testDataText.csv'
-        # Id	Prompt	Wavfile	RecResult	Judgement
+    elif test_year == '2018_asr':
+        meta_csv = '../data/texttask_trainData/scst2_testDataSpeech.csv'
     result_df = pd.read_csv(meta_csv, sep='\t', encoding="utf-8", na_filter=False)
     result_df['Judgement'] = judgements
-    result_df['proba'] = probs[:, 1]
-    result_df.to_csv(pred_file, index=False)
+    # result_df['proba'] = probs[:, 1]
+    result_df.to_csv(pred_file, index=False, sep='\t')
 
     if test_year == '2017':
         get_D_on_df(result_df)

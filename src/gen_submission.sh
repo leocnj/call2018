@@ -18,10 +18,10 @@ TS_18=${DATA}/y18_test_${TASK2}.csv
 MODEL_FILE=../ml_exp/pipe/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}.pkl
 
 echo $MODEL_FILE
-python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
+# python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
 # show D on y17_test
 python runexp_eval.py --model_file $MODEL_FILE --test ${TS_17} --year 2017 --thres $THRES
-python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018 --thres $THRES
+python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_text --thres $THRES
 
 # asr task
 TASK=asr
@@ -35,10 +35,10 @@ TS_18=${DATA}/y18_test_${TASK2}.csv
 MODEL_FILE=../ml_exp/pipe/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}.pkl
 
 echo $MODEL_FILE
-python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
+# python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
 # show D on y17_test
 python runexp_eval.py --model_file $MODEL_FILE --test ${TS_17} --year 2017 --thres $THRES
-python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018 --thres $THRES
+python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_asr --thres $THRES
 
 # asr task
 TASK=asr
@@ -52,7 +52,7 @@ TS_18=${DATA}/y18_test_${TASK2}.csv
 MODEL_FILE=../ml_exp/pipe/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}.pkl
 
 echo $MODEL_FILE
-python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL}
+# python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL}
 # show D on y17_test
 python runexp_eval.py --model_file $MODEL_FILE --test ${TS_17} --year 2017 --thres $THRES
-python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018 --thres $THRES
+python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_asr --thres $THRES
