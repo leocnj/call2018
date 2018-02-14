@@ -8,6 +8,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import cross_val_score
 from sklearn.feature_selection import RFECV, RFE
 from sklearn.preprocessing.data import StandardScaler
+from sklearn.metrics import f1_score
 
 from tpot import TPOTClassifier
 from utils import *
@@ -135,17 +136,27 @@ def one_expm(objs, model_type, shuffle, shuffle_inEval, model_file):
     thres_lst = [0.20, 0.25, 0.30, 0.350, 0.40, 0.45, 0.50]
     for thres in thres_lst:
         print('---------------------------------------------------------------------------------------------')
-        Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
+        # Ds, ICRs, CRs = cross_val_D(model, lang_train_X, train_y, cv=shuffle_inEval, THRES=thres)
+        Ds, ICRs, CRs = np.asarray([0]), np.asarray([0]), np.asarray([0])  # skip this and focus only on test.
         # D on the REAL test set.
         D_test, ICR_test, CR_test = get_D_on_proba(model.predict_proba(lang_test_X), test_y, THRES=thres, print=False,
                                                    CR_adjust=False)
-        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}'.format(thres,
-                                                                                                            Ds.mean(),
-                                                                                                            ICRs.mean(),
-                                                                                                            CRs.mean(),
-                                                                                                            D_test,
-                                                                                                            ICR_test,
-                                                                                                            CR_test))
+        # F1 score
+        probs = model.predict_proba(lang_test_X)
+        make_judge = lambda x: 1 if x >= thres else 0
+        y_pred = np.asarray([make_judge(prob) for prob in probs[:, 1]])
+        f1 = f1_score(test_y[:, 1], y_pred)
+        print('Thres:{}\tCV D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tTest D:{:2.4f} ICR:{:2.4f} CR:{:2.4f}\tF1:{:2.4f}'.format(
+            thres,
+            Ds.mean(),
+            ICRs.mean(),
+            CRs.mean(),
+            D_test,
+            ICR_test,
+            CR_test,
+            f1))
+
+
 import os
 def model_fname(train_csv, model_type):
     csv_ids = [os.path.splitext(os.path.basename(x))[0] for x in train_csv]

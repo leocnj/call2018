@@ -28,10 +28,10 @@ def prep_test(test_csv, pipe):
 
 
 import os
-def pred_fname(model_file, test_csv):
+def pred_fname(model_file, test_csv, thres):
     model_id = os.path.splitext(os.path.basename(model_file))[0]
     csv_id = os.path.splitext(os.path.basename(test_csv))[0]
-    model_file = '../ml_exp/preds/' + model_id + '_' + csv_id + '.csv'
+    model_file = '../ml_exp/preds/' + model_id + '_' + csv_id + '_t' + str(thres) + '.csv'
     print(model_file)
     return model_file
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     with open(model_file, 'rb') as pf:
          pipe, ml_model = pickle.load(pf)
 
-    pred_file = pred_fname(model_file, test_csv)
+    pred_file = pred_fname(model_file, test_csv, test_thres)
     X_ts = prep_test(test_csv, pipe)
     probs = ml_model.predict_proba(X_ts)
 
@@ -76,6 +76,7 @@ if __name__ == '__main__':
         # Id	Prompt	Wavfile	RecResult	Judgement
     result_df = pd.read_csv(meta_csv, sep='\t', encoding="utf-8", na_filter=False)
     result_df['Judgement'] = judgements
+    result_df['proba'] = probs[:, 1]
     result_df.to_csv(pred_file, index=False)
 
     if test_year == '2017':
