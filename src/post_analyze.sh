@@ -8,6 +8,7 @@ MODEL=Ensemble
 # 3 2017 + ABC, text, 0.5
 EXPM="Expm 3: 2017 + 2018ABC, Ensemble, Text, 0.5"
 echo $EXPM
+RUN_PY=0
 
 THRES=0.5
 TASK=text
@@ -21,6 +22,8 @@ TS_18=${DATA}/y18_test_${TASK2}.csv
 
 MODEL_FILE=${PIPE}/y18_train_A_${TASK}-y18_train_B_${TASK}-y18_train_C_${TASK}-y17_train_${TASK}-${MODEL}.pkl
 CSV=${PRED}/y18_train_A_${TASK}-y18_train_B_${TASK}-y18_train_C_${TASK}-y17_train_${TASK}-${MODEL}_y18_test_${TASK2}_t${THRES}.csv
-python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
-python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_text --thres $THRES
-python comp_result.py $CSV
+if [ $RUN_PY -eq 1 ]; then
+  python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
+  python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_text --thres $THRES
+  python comp_result.py $CSV
+fi
