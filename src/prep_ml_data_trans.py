@@ -89,8 +89,8 @@ def gen_ml_csv(df_main, grmerr_csv, huy_csv, ml_csv):
     else:
         df_ml = df_main[['Id']]
 
-    # df_ml = pd.merge(df_ml, df_grmerr, on='Id',
-    #                  how='left')  # grmerr may miss some Ids due to ASR null outputs. use left to keep all Ids.
+    df_ml = pd.merge(df_ml, df_grmerr, on='Id',
+                     how='left')  # grmerr may miss some Ids due to ASR null outputs. use left to keep all Ids.
     df_ml = pd.merge(df_ml, df_huy, on='Id', how='left')
     df_ml.fillna(0, inplace=True)
     df_ml.to_csv(ml_csv, index=False)
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     # ------------------------- TRAN task -------------------------------------------------
     # 2017 train text
     gen_ml_csv(y17_train,
-               '../data/processed/df17_train_grmerror.csv',
+               '../data/processed/df17_train_tran_grmerror.csv',
                '../data/processed/Huy/v8_Trs/textProcessing_trainingKaldi_features.csv',
                '../ml_exp/inputs/y17_train_tran.csv')
     # # 2017 test text
@@ -116,21 +116,21 @@ if __name__ == '__main__':
     # text
     # 2018 train A
     gen_ml_csv(y18_train_A,
-               '../data/processed/df18_A_train_grmerror.csv',
+               '../data/processed/df18_A_train_tran_grmerror.csv',
                '../data/processed/Huy/v8_Trs/scst2_training_data_A_text_features.csv',
                '../ml_exp/inputs/y18_train_A_tran.csv')
     # 2018 train B
     gen_ml_csv(y18_train_B,
-               '../data/processed/df18_B_train_grmerror.csv',
+               '../data/processed/df18_B_train_tran_grmerror.csv',
                '../data/processed/Huy/v8_Trs/scst2_training_data_B_text_features.csv',
                '../ml_exp/inputs/y18_train_B_tran.csv')
     # 2018 train C
     gen_ml_csv(y18_train_C,
-               '../data/processed/df18_C_train_grmerror.csv',
+               '../data/processed/df18_C_train_tran_grmerror.csv',
                '../data/processed/Huy/v8_Trs/scst2_training_data_C_text_features.csv',
                '../ml_exp/inputs/y18_train_C_tran.csv')
     # 2018 test
     gen_ml_csv(y18_test,
-               '../data/processed/df18_test_text_grmerror.csv',
+               '../data/processed/df18_test_tran_grmerror.csv',
                '../data/processed/Huy/v8_Trs/testDataWithJudgements_features.csv',
                '../ml_exp/inputs/y18_test_tran.csv')
