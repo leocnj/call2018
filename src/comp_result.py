@@ -1,6 +1,7 @@
-from sklearn.metrics import f1_score, classification_report, confusion_matrix
+import argparse
+
 import pandas as pd
-import sys
+from sklearn.metrics import f1_score, classification_report, confusion_matrix
 
 
 # from CALL
@@ -70,27 +71,36 @@ def two_digits(x):
     if x == 'undefined':
         return 'undefined'
     else:
-        return ("%.2f" % x)
+        return ("%.4f" % x)
 
 def get_D_on_df(df):
     scores = init_scores()
     for _, row in df.iterrows():
         decision = row['Judgement']
-        lang_label = row['FullyAcceptable']
-        mean_label = row['MeaningAcceptable']
+        lang_label = row['language']
+        mean_label = row['meaning']
         score_decision(decision, lang_label, mean_label, scores)
     print_scores(scores)
 
+
 if __name__ == '__main__':
 
-    df = pd.read_csv(sys.argv[1], delimiter='\t')
-    # load 2018 test judgement
-    scores = pd.read_csv('../data/texttask_trainData/testDataWithJudgements.csv', delimiter='\t')
-    df = pd.merge(df, scores, on='Id')
-
+    # df = pd.read_csv(sys.argv[1], delimiter='\t')
     make_judge = lambda x: 1 if x == 'accept' or x == 'correct' else 0
+    parser = argparse.ArgumentParser()
+    parser.add_argument('df_file', type=str)
+    parser.add_argument('--year', type=str, help='which test file', default='2018')
+    args = parser.parse_args()
+    df = pd.read_csv(args.df_file, delimiter='\t')
+    if (args.year == '2018'):
+        # load 2018 test judgement
+        scores = pd.read_csv('../data/texttask_trainData/testDataWithJudgements.csv', delimiter='\t')
+        # always use language and meaning
+        scores.rename(columns={'FullyAcceptable': 'language',
+                               'MeaningAcceptable': 'meaning'}, inplace=True)
+        df = pd.merge(df, scores, on='Id')
     df['pred_lang'] = [make_judge(x) for x in df['Judgement']]
-    df['true_lang'] = [make_judge(x) for x in df['FullyAcceptable']]
+    df['true_lang'] = [make_judge(x) for x in df['language']]
 
     # F1
     f1 = f1_score(df['true_lang'], df['pred_lang'], average='macro')

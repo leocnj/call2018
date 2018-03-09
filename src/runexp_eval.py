@@ -1,7 +1,7 @@
 import argparse
-import pandas as pd
 import pickle
-from utils import get_D_on_df
+
+import pandas as pd
 
 """
 runexp_eval.py
@@ -80,5 +80,5 @@ if __name__ == '__main__':
     # result_df['proba'] = probs[:, 1]
     result_df.to_csv(pred_file, index=False, sep='\t')
 
-    if test_year == '2017':
-        get_D_on_df(result_df)
+    # if test_year == '2017':
+    #    get_D_on_df(result_df)

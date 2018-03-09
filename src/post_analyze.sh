@@ -134,7 +134,7 @@ EXPM="Expm of using trans: 2017 + 2018A, Ensemble, text, 0.35"
 # the F-1 provided by the CALL challenge seems a micro-version value
 #
 echo $EXPM
-RUN_PY=1
+RUN_PY=0
 
 THRES=0.4
 TASK=tran
@@ -147,6 +147,36 @@ TA_18="$TA_18_A"
 TS_18=${DATA}/y18_test_${TASK2}.csv
 
 MODEL_FILE=${PIPE}/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}.pkl
+CSV=${PRED}/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}_y18_test_${TASK2}_t${THRES}.csv
+if [ $RUN_PY -eq 1 ]; then
+  python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
+  python runexp_eval.py --model_file $MODEL_FILE --test ${TS_18} --year 2018_text --thres $THRES
+  python comp_result.py $CSV
+fi
+
+# IS2018 paper tables.
+THRES=0.5
+EXPM="2017 + 2018A, Ensemble, Text, tested on both 2017 test and 2018 test with diff ${THRES}"
+echo $EXPM
+RUN_PY=1
+
+TASK=text
+TASK2=text
+TA_17=${DATA}/y17_train_${TASK}.csv
+TA_18_A=${DATA}/y18_train_A_${TASK}.csv
+TA_18="$TA_18_A"
+TS_17=${DATA}/y17_test_${TASK2}.csv
+TS_18=${DATA}/y18_test_${TASK2}.csv
+
+MODEL_FILE=${PIPE}/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}.pkl
+# 2017 test
+CSV=${PRED}/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}_y17_test_${TASK2}_t${THRES}.csv
+if [ $RUN_PY -eq 1 ]; then
+  python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
+  python runexp_eval.py --model_file $MODEL_FILE --test ${TS_17} --year 2017 --thres $THRES
+  python comp_result.py $CSV --year 2017
+fi
+# 2018 test
 CSV=${PRED}/y18_train_A_${TASK}-y17_train_${TASK}-${MODEL}_y18_test_${TASK2}_t${THRES}.csv
 if [ $RUN_PY -eq 1 ]; then
   python runexp_train.py --train ${TA_18} ${TA_17} -t ${MODEL} --fit
