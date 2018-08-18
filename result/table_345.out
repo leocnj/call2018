@@ -1,0 +1,594 @@
+0.5
+************************************
+0.5
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y17_test_text_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7635203700143134
+confusion matrix:
+
+[[163 116]
+ [ 62 654]]
+             precision    recall  f1-score   support
+
+          0       0.72      0.58      0.65       279
+          1       0.85      0.91      0.88       716
+
+avg / total       0.81      0.82      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    163
+GrossFalseAccept 60*3 = 180
+PlainFalseAccept 56
+RejectionRate    0.4085
+
+CORRECT UTTERANCES (716)
+CorrectAccept    654
+FalseReject      62
+RejectionRate    0.0866
+
+D                4.7178
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y18_test_text_t0.5.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7909772348271595
+confusion matrix:
+
+[[138 112]
+ [ 25 725]]
+             precision    recall  f1-score   support
+
+          0       0.85      0.55      0.67       250
+          1       0.87      0.97      0.91       750
+
+avg / total       0.86      0.86      0.85      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    138
+GrossFalseAccept 48*3 = 144
+PlainFalseAccept 64
+RejectionRate    0.3988
+
+CORRECT UTTERANCES (750)
+CorrectAccept    725
+FalseReject      25
+RejectionRate    0.0333
+
+D                11.9653
+************************************
+0.4
+************************************
+0.4
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y17_test_text_t0.4.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7457752922217417
+confusion matrix:
+
+[[139 140]
+ [ 39 677]]
+             precision    recall  f1-score   support
+
+          0       0.78      0.50      0.61       279
+          1       0.83      0.95      0.88       716
+
+avg / total       0.82      0.82      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    139
+GrossFalseAccept 72*3 = 216
+PlainFalseAccept 68
+RejectionRate    0.3286
+
+CORRECT UTTERANCES (716)
+CorrectAccept    677
+FalseReject      39
+RejectionRate    0.0545
+
+D                6.0329
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y18_test_text_t0.4.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7656515849015416
+confusion matrix:
+
+[[120 130]
+ [ 16 734]]
+             precision    recall  f1-score   support
+
+          0       0.88      0.48      0.62       250
+          1       0.85      0.98      0.91       750
+
+avg / total       0.86      0.85      0.84      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    120
+GrossFalseAccept 58*3 = 174
+PlainFalseAccept 72
+RejectionRate    0.3279
+
+CORRECT UTTERANCES (750)
+CorrectAccept    734
+FalseReject      16
+RejectionRate    0.0213
+
+D                15.3689
+************************************
+0.35
+************************************
+0.35
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y17_test_text_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7355002063478776
+confusion matrix:
+
+[[129 150]
+ [ 31 685]]
+             precision    recall  f1-score   support
+
+          0       0.81      0.46      0.59       279
+          1       0.82      0.96      0.88       716
+
+avg / total       0.82      0.82      0.80       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    129
+GrossFalseAccept 79*3 = 237
+PlainFalseAccept 71
+RejectionRate    0.2952
+
+CORRECT UTTERANCES (716)
+CorrectAccept    685
+FalseReject      31
+RejectionRate    0.0433
+
+D                6.8180
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 31)
+../ml_exp/pipe/y18_train_A_text-y17_train_text-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_text-y17_train_text-Ensemble_y18_test_text_t0.35.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7554871794871795
+confusion matrix:
+
+[[113 137]
+ [ 12 738]]
+             precision    recall  f1-score   support
+
+          0       0.90      0.45      0.60       250
+          1       0.84      0.98      0.91       750
+
+avg / total       0.86      0.85      0.83      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    113
+GrossFalseAccept 60*3 = 180
+PlainFalseAccept 77
+RejectionRate    0.3054
+
+CORRECT UTTERANCES (750)
+CorrectAccept    738
+FalseReject      12
+RejectionRate    0.0160
+
+D                19.0878
+************************************
+0.5
+************************************
+0.5
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7798612865607261
+confusion matrix:
+
+[[151 128]
+ [ 27 689]]
+             precision    recall  f1-score   support
+
+          0       0.85      0.54      0.66       279
+          1       0.84      0.96      0.90       716
+
+avg / total       0.84      0.84      0.83       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    151
+GrossFalseAccept 65*3 = 195
+PlainFalseAccept 63
+RejectionRate    0.3692
+
+CORRECT UTTERANCES (716)
+CorrectAccept    689
+FalseReject      27
+RejectionRate    0.0377
+
+D                9.7905
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_asr_t0.5.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.816385736844038
+confusion matrix:
+
+[[155  95]
+ [ 30 720]]
+             precision    recall  f1-score   support
+
+          0       0.84      0.62      0.71       250
+          1       0.88      0.96      0.92       750
+
+avg / total       0.87      0.88      0.87      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    155
+GrossFalseAccept 46*3 = 138
+PlainFalseAccept 49
+RejectionRate    0.4532
+
+CORRECT UTTERANCES (750)
+CorrectAccept    720
+FalseReject      30
+RejectionRate    0.0400
+
+D                11.3304
+************************************
+0.4
+************************************
+0.4
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_asr_t0.4.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7548415709850687
+confusion matrix:
+
+[[132 147]
+ [ 18 698]]
+             precision    recall  f1-score   support
+
+          0       0.88      0.47      0.62       279
+          1       0.83      0.97      0.89       716
+
+avg / total       0.84      0.83      0.82       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    132
+GrossFalseAccept 77*3 = 231
+PlainFalseAccept 70
+RejectionRate    0.3048
+
+CORRECT UTTERANCES (716)
+CorrectAccept    698
+FalseReject      18
+RejectionRate    0.0251
+
+D                12.1263
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_asr_t0.4.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7871620431831371
+confusion matrix:
+
+[[136 114]
+ [ 25 725]]
+             precision    recall  f1-score   support
+
+          0       0.84      0.54      0.66       250
+          1       0.86      0.97      0.91       750
+
+avg / total       0.86      0.86      0.85      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    136
+GrossFalseAccept 48*3 = 144
+PlainFalseAccept 66
+RejectionRate    0.3931
+
+CORRECT UTTERANCES (750)
+CorrectAccept    725
+FalseReject      25
+RejectionRate    0.0333
+
+D                11.7919
+************************************
+0.35
+************************************
+0.35
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7484440972584925
+confusion matrix:
+
+[[127 152]
+ [ 15 701]]
+             precision    recall  f1-score   support
+
+          0       0.89      0.46      0.60       279
+          1       0.82      0.98      0.89       716
+
+avg / total       0.84      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    127
+GrossFalseAccept 79*3 = 237
+PlainFalseAccept 73
+RejectionRate    0.2906
+
+CORRECT UTTERANCES (716)
+CorrectAccept    701
+FalseReject      15
+RejectionRate    0.0209
+
+D                13.8722
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_asr_t0.35.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7715940713900598
+confusion matrix:
+
+[[128 122]
+ [ 25 725]]
+             precision    recall  f1-score   support
+
+          0       0.84      0.51      0.64       250
+          1       0.86      0.97      0.91       750
+
+avg / total       0.85      0.85      0.84      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    128
+GrossFalseAccept 51*3 = 153
+PlainFalseAccept 71
+RejectionRate    0.3636
+
+CORRECT UTTERANCES (750)
+CorrectAccept    725
+FalseReject      25
+RejectionRate    0.0333
+
+D                10.9091
+************************************
+0.5
+************************************
+0.5
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_2best_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7599503365814622
+confusion matrix:
+
+[[137 142]
+ [ 22 694]]
+             precision    recall  f1-score   support
+
+          0       0.86      0.49      0.63       279
+          1       0.83      0.97      0.89       716
+
+avg / total       0.84      0.84      0.82       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    137
+GrossFalseAccept 70*3 = 210
+PlainFalseAccept 72
+RejectionRate    0.3270
+
+CORRECT UTTERANCES (716)
+CorrectAccept    694
+FalseReject      22
+RejectionRate    0.0307
+
+D                10.6414
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_2best_t0.5.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.8031829437423619
+confusion matrix:
+
+[[142 108]
+ [ 21 729]]
+             precision    recall  f1-score   support
+
+          0       0.87      0.57      0.69       250
+          1       0.87      0.97      0.92       750
+
+avg / total       0.87      0.87      0.86      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    142
+GrossFalseAccept 49*3 = 147
+PlainFalseAccept 59
+RejectionRate    0.4080
+
+CORRECT UTTERANCES (750)
+CorrectAccept    729
+FalseReject      21
+RejectionRate    0.0280
+
+D                14.5731
+************************************
+0.4
+************************************
+0.4
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_2best_t0.4.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7387613407625659
+confusion matrix:
+
+[[121 158]
+ [ 13 703]]
+             precision    recall  f1-score   support
+
+          0       0.90      0.43      0.59       279
+          1       0.82      0.98      0.89       716
+
+avg / total       0.84      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    121
+GrossFalseAccept 80*3 = 240
+PlainFalseAccept 78
+RejectionRate    0.2756
+
+CORRECT UTTERANCES (716)
+CorrectAccept    703
+FalseReject      13
+RejectionRate    0.0182
+
+D                15.1807
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_2best_t0.4.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7642936773371556
+confusion matrix:
+
+[[121 129]
+ [ 19 731]]
+             precision    recall  f1-score   support
+
+          0       0.86      0.48      0.62       250
+          1       0.85      0.97      0.91       750
+
+avg / total       0.85      0.85      0.84      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    121
+GrossFalseAccept 52*3 = 156
+PlainFalseAccept 77
+RejectionRate    0.3418
+
+CORRECT UTTERANCES (750)
+CorrectAccept    731
+FalseReject      19
+RejectionRate    0.0253
+
+D                13.4924
+************************************
+0.35
+************************************
+0.35
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y17_test_2best_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7329042488107576
+confusion matrix:
+
+[[116 163]
+ [  9 707]]
+             precision    recall  f1-score   support
+
+          0       0.93      0.42      0.57       279
+          1       0.81      0.99      0.89       716
+
+avg / total       0.84      0.83      0.80       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    116
+GrossFalseAccept 82*3 = 246
+PlainFalseAccept 81
+RejectionRate    0.2619
+
+CORRECT UTTERANCES (716)
+CorrectAccept    707
+FalseReject      9
+RejectionRate    0.0126
+
+D                20.8317
+df_ta shape (10747, 57)
+After pipeline data shape (10747, 20)
+../ml_exp/pipe/y18_train_A_asr-y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y18_train_A_asr-y17_train_asr-Ensemble_y18_test_2best_t0.35.csv
+df_ts shape (1000, 55)
+f1 using f1_score average=macro: 0.7529512635816253
+confusion matrix:
+
+[[115 135]
+ [ 18 732]]
+             precision    recall  f1-score   support
+
+          0       0.86      0.46      0.60       250
+          1       0.84      0.98      0.91       750
+
+avg / total       0.85      0.85      0.83      1000
+
+
+INCORRECT UTTERANCES (250)
+CorrectReject    115
+GrossFalseAccept 56*3 = 168
+PlainFalseAccept 79
+RejectionRate    0.3177
+
+CORRECT UTTERANCES (750)
+CorrectAccept    732
+FalseReject      18
+RejectionRate    0.0240
+
+D                13.2366
+************************************

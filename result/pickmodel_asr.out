@@ -1,0 +1,335 @@
+LR
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-LR.pkl
+model type: LR
+../ml_exp/preds/y17_train_asr-LR_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7653222817480373
+confusion matrix:
+
+[[150 129]
+ [ 39 677]]
+             precision    recall  f1-score   support
+
+          0       0.79      0.54      0.64       279
+          1       0.84      0.95      0.89       716
+
+avg / total       0.83      0.83      0.82       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    150
+GrossFalseAccept 68*3 = 204
+PlainFalseAccept 61
+RejectionRate    0.3614
+
+CORRECT UTTERANCES (716)
+CorrectAccept    677
+FalseReject      39
+RejectionRate    0.0545
+
+D                6.6358
+************************************
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-LR.pkl
+model type: LR
+../ml_exp/preds/y17_train_asr-LR_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7375754831608331
+confusion matrix:
+
+[[122 157]
+ [ 16 700]]
+             precision    recall  f1-score   support
+
+          0       0.88      0.44      0.59       279
+          1       0.82      0.98      0.89       716
+
+avg / total       0.84      0.83      0.80       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    122
+GrossFalseAccept 80*3 = 240
+PlainFalseAccept 77
+RejectionRate    0.2779
+
+CORRECT UTTERANCES (716)
+CorrectAccept    700
+FalseReject      16
+RejectionRate    0.0223
+
+D                12.4362
+************************************
+SVC
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-SVC.pkl
+model type: SVC
+../ml_exp/preds/y17_train_asr-SVC_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7779720477244995
+confusion matrix:
+
+[[153 126]
+ [ 32 684]]
+             precision    recall  f1-score   support
+
+          0       0.83      0.55      0.66       279
+          1       0.84      0.96      0.90       716
+
+avg / total       0.84      0.84      0.83       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    153
+GrossFalseAccept 66*3 = 198
+PlainFalseAccept 60
+RejectionRate    0.3723
+
+CORRECT UTTERANCES (716)
+CorrectAccept    684
+FalseReject      32
+RejectionRate    0.0447
+
+D                8.3294
+************************************
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-SVC.pkl
+model type: SVC
+../ml_exp/preds/y17_train_asr-SVC_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7516402795606903
+confusion matrix:
+
+[[132 147]
+ [ 21 695]]
+             precision    recall  f1-score   support
+
+          0       0.86      0.47      0.61       279
+          1       0.83      0.97      0.89       716
+
+avg / total       0.84      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    132
+GrossFalseAccept 79*3 = 237
+PlainFalseAccept 68
+RejectionRate    0.3021
+
+CORRECT UTTERANCES (716)
+CorrectAccept    695
+FalseReject      21
+RejectionRate    0.0293
+
+D                10.2988
+************************************
+RF
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-RF.pkl
+model type: RF
+../ml_exp/preds/y17_train_asr-RF_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7792937454965287
+confusion matrix:
+
+[[160 119]
+ [ 42 674]]
+             precision    recall  f1-score   support
+
+          0       0.79      0.57      0.67       279
+          1       0.85      0.94      0.89       716
+
+avg / total       0.83      0.84      0.83       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    160
+GrossFalseAccept 62*3 = 186
+PlainFalseAccept 57
+RejectionRate    0.3970
+
+CORRECT UTTERANCES (716)
+CorrectAccept    674
+FalseReject      42
+RejectionRate    0.0587
+
+D                6.7683
+************************************
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-RF.pkl
+model type: RF
+../ml_exp/preds/y17_train_asr-RF_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7410311486591596
+confusion matrix:
+
+[[127 152]
+ [ 22 694]]
+             precision    recall  f1-score   support
+
+          0       0.85      0.46      0.59       279
+          1       0.82      0.97      0.89       716
+
+avg / total       0.83      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    127
+GrossFalseAccept 80*3 = 240
+PlainFalseAccept 72
+RejectionRate    0.2893
+
+CORRECT UTTERANCES (716)
+CorrectAccept    694
+FalseReject      22
+RejectionRate    0.0307
+
+D                9.4152
+************************************
+XGB
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-XGB.pkl
+model type: XGB
+../ml_exp/preds/y17_train_asr-XGB_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7907396338358681
+confusion matrix:
+
+[[163 116]
+ [ 36 680]]
+             precision    recall  f1-score   support
+
+          0       0.82      0.58      0.68       279
+          1       0.85      0.95      0.90       716
+
+avg / total       0.84      0.85      0.84       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    163
+GrossFalseAccept 63*3 = 189
+PlainFalseAccept 53
+RejectionRate    0.4025
+
+CORRECT UTTERANCES (716)
+CorrectAccept    680
+FalseReject      36
+RejectionRate    0.0503
+
+D                8.0047
+************************************
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-XGB.pkl
+model type: XGB
+../ml_exp/preds/y17_train_asr-XGB_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.745431451716678
+confusion matrix:
+
+[[126 153]
+ [ 16 700]]
+             precision    recall  f1-score   support
+
+          0       0.89      0.45      0.60       279
+          1       0.82      0.98      0.89       716
+
+avg / total       0.84      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    126
+GrossFalseAccept 80*3 = 240
+PlainFalseAccept 73
+RejectionRate    0.2870
+
+CORRECT UTTERANCES (716)
+CorrectAccept    700
+FalseReject      16
+RejectionRate    0.0223
+
+D                12.8440
+************************************
+Ensemble
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y17_train_asr-Ensemble_y17_test_asr_t0.5.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.7916945802907482
+confusion matrix:
+
+[[161 118]
+ [ 32 684]]
+             precision    recall  f1-score   support
+
+          0       0.83      0.58      0.68       279
+          1       0.85      0.96      0.90       716
+
+avg / total       0.85      0.85      0.84       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    161
+GrossFalseAccept 63*3 = 189
+PlainFalseAccept 55
+RejectionRate    0.3975
+
+CORRECT UTTERANCES (716)
+CorrectAccept    684
+FalseReject      32
+RejectionRate    0.0447
+
+D                8.8948
+************************************
+************************************
+df_ta shape (5221, 57)
+After pipeline data shape (5221, 29)
+../ml_exp/pipe/y17_train_asr-Ensemble.pkl
+model type: Ensemble
+../ml_exp/preds/y17_train_asr-Ensemble_y17_test_asr_t0.35.csv
+df_ts shape (995, 57)
+f1 using f1_score average=macro: 0.743955412354057
+confusion matrix:
+
+[[122 157]
+ [ 10 706]]
+             precision    recall  f1-score   support
+
+          0       0.92      0.44      0.59       279
+          1       0.82      0.99      0.89       716
+
+avg / total       0.85      0.83      0.81       995
+
+
+INCORRECT UTTERANCES (279)
+CorrectReject    122
+GrossFalseAccept 79*3 = 237
+PlainFalseAccept 78
+RejectionRate    0.2792
+
+CORRECT UTTERANCES (716)
+CorrectAccept    706
+FalseReject      10
+RejectionRate    0.0140
+
+D                19.9890
+************************************
